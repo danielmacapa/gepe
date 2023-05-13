@@ -1,2 +1,2 @@
 # gepe
-TCC
+ Gerenciador de Fichas de Personagens
