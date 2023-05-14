@@ -57,6 +57,7 @@ class ProfessionController extends Controller
             'equipment' => $request->equipment
 
         ]);
+        return redirect()->route('profession.list');
     }
 
     public function delete($uuid)
