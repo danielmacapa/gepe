@@ -7,8 +7,9 @@
 
 @section('content')
     <div class='container-fluid'>
-        <a class='btn btn-primary btn-sm' href="{{ route('character.create') }}"><i class='fa fa-plus'></i> Cadastrar Novo
-        </a>
+        <p><a class='btn btn-primary btn-sm' href="{{ route('character.create') }}"><i class='fa fa-plus'></i> Cadastrar
+                Novo
+            </a></p>
         <div class="card">
             <table class="table table-lg">
                 <tr class="table-primary">
@@ -24,19 +25,21 @@
                         <td>{{ $character->profession->name }}</td>
                         <td>{{ $character->player->name }}</td>
                         <!-- As três views abaixo requerem uuid do registro, conforme rota -->
-                        <td><a href="{{ route('character.show', $character->uuid) }}"><i class='fa fa-eye'></i></a></td>
-                        <td><a href="{{ route('character.update', $character->uuid) }}"><i class='fa fa-edit'></i></a></td>
-                        <td><a href="{{ route('character.delete', $character->uuid) }}"><i class='fa fa-trash'></i></a></td>
+                        <td><a href="{{ route('character.show', $character->uuid) }}"><i class='fa fa-eye'
+                                    title="Detalhes"></i></a></td>
+                        <td><a href="{{ route('character.update', $character->uuid) }}"><i class='fa fa-edit'
+                                    title="Editar"></i></a></td>
+                        <td><a href="{{ route('character.delete', $character->uuid) }}"><i class='fa fa-trash'
+                                    title="Excluir"></i></a></td>
                     </tr>
                 @empty
                     <tr>
                         <td colspan=7>Não encontramos registros.</td>
                     </tr>
                 @endforelse
-                <tr>
-                    <td><a href="../">Voltar</a></td>
-                </tr>
             </table>
+            <p><a class='btn btn-primary btn-sm' href="../">Voltar</a></p>
+
         </div>
     </div>
 @endsection

@@ -20,6 +20,7 @@
         Empatia{{ $character->empathy }}<br>
         Ascendência: {{ $character->race->name }}<br>
         Profissão: {{ $character->profession->name }}<br>
+        Equipamento: {{ $character->profession->equipment }}<br>
         Jogador: {{ $character->player->name }}<br>
         Criado em: {{ $character->created_at }}<br>
         Atualizado em: {{ $character->updated_at }}<br>
