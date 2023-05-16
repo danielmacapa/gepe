@@ -1,55 +1,95 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
+@extends('template.master2')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Detalhes do Personagem</title>
-</head>
+@section('content')
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Detalhes do Personagem</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="row">
+            <div class="col-lg-6 col-2">
+                <div class="card-body">
+                    <div class="table table-lg">
+                        <table>
+                            <tr>
+                                <th class="table-primary">Nome:</th>
+                                <th>{{ $character->name }}</th>
+                            </tr>
+                            <tr>
+                                <th class="table-primary">UUID:</th>
+                                <td>{{ $character->uuid }}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary">Slug:</th>
+                                <td>{{ $character->slug }}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary">Jogador:</th>
+                                <td>{{ $character->player->name }}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary">Criado em:</th>
+                                <td>{{ $character->created_at }}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary">Atualizado em:</th>
+                                <td>{{ $character->updated_at }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.col -->
+            <div class="col-lg-6 col-2">
+                <div class="card-body">
+                    <div class="table table-lg">
+                        <table>
+                            <tr>
+                                <th class="table-primary">Ascendência:</th>
+                                <td>{{ $character->race->name }}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary">Profissão:</th>
+                                <td>{{ $character->profession->name }}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary">Equipamento:</th>
+                                <td>{{ $character->profession->equipment }}</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <table class="table table-lg">
+                        <tr>
+                            <th colspan="2">ATRIBUTOS</th>
+                        </tr>
+                        <tr>
+                            <th>Força</th>
+                            <td>{{ $character->strenght }}</td>
+                        </tr>
+                        <tr>
+                            <th>Agilidade</th>
+                            <td>{{ $character->agility }}</td>
+                        </tr>
+                        <tr>
+                            <th>Astúcia</th>
+                            <td>{{ $character->wits }}</td>
+                        </tr>
+                        <tr>
+                            <th>Empatia</th>
+                            <td>{{ $character->empathy }}</td>
+                        </tr>
 
-<body>
-    <div class="details">
-        <h1>Detalhes</h1>
-        Nome: {{ $character->name }}<br>
-        UUID: {{ $character->uuid }}<br>
-        Slug: {{ $character->slug }}<br>
-        Força{{ $character->strenght }}<br>
-        Agilidade{{ $character->agility }}<br>
-        Astúcia{{ $character->wits }}<br>
-        Empatia{{ $character->empathy }}<br>
-        Ascendência: {{ $character->race->name }}<br>
-        Profissão: {{ $character->profession->name }}<br>
-        Equipamento: {{ $character->profession->equipment }}<br>
-        Jogador: {{ $character->player->name }}<br>
-        Criado em: {{ $character->created_at }}<br>
-        Atualizado em: {{ $character->updated_at }}<br>
-    </div>
-    <div class="list">
-        <h1>Personagens com a ascendência {{ $character->race->name }} </h1>
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>Profissão</th>
-                <th>Jogador</th>
-            </tr>
-            @forelse ($character->race->characters as $character)
-                <tr>
-                    <td>{{ $character->name }}</td>
-                    <td>{{ $character->profession->name }}</td>
-                    <td>{{ $character->player->name }}</td>
-                </tr>
-            @empty
-                <tr>
-                    <td colspan=2>Não encontramos registros.</td>
-                </tr>
-            @endforelse
-        </table>
-    </div>
-    <div class="back">
-        <a href="/character/list">Voltar</a>
-    </div>
+                    </table>
 
-</body>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.col -->
+        </div> <!-- /.row -->
+        <div>
+            <a class='btn btn-primary btn-sm' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                </i> Voltar</a>
+        </div>
+
+    </div>
+@endsection
 
 </html>

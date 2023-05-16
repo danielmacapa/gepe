@@ -42,8 +42,8 @@
                     </tr>
                 @endforelse
             </table>
-            <p><a class='btn btn-primary btn-sm' href="../">Voltar</a></p>
-
+            <p><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                    </i> Voltar</a></p>
         </div>
     </div>
 @endsection

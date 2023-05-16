@@ -25,9 +25,8 @@
         <button type="submit" class="btn btn-danger">Confirmar exclusão </button>
     </form>
     @endif
-    <div class="back">
-        <a href="/race/list">Voltar</a>
-    </div>
+    <a class='btn btn-secundary' href="/race/list"><i class="fas fa-arrow-circle-left">
+        </i> Voltar</a>
 @endsection
 
 </html>

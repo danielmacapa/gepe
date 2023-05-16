@@ -1,65 +1,108 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
+@extends('template.master2')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de Personagens</title>
-</head>
-
-<body>
-    <h1>Formulário de Cadastro</h1>
-    <form class="form" method="post" action="{{ route('character.store') }}">
-        @csrf
-        <div class="form_grupo">
-            <label class="form_label">UUID</label>
-            <input type="text" name="uuid" placeholder="UUID" required><br>
-            <label class="form_label">Nome</label>
-            <input type="text" name="name" placeholder="Nome" required><br>
-            <label class="form_label">Slug</label>
-            <input type="text" name="slug" placeholder="Slug" required><br>
-            <label class="form_label">Ascendência</label>
-            <select name="race_id" required>
-                @forelse ($races as $race)
-                    <option value="{{ $race->id }}">{{ $race->name }}</option><br>
-                @empty
-                @endforelse
-            </select><br>
-            <label class="form_label">Profissão</label>
-            <select name="profession_id" required>
-                @forelse ($professions as $profession)
-                    <option value="{{ $profession->id }}">{{ $profession->name }}</option><br>
-                @empty
-                @endforelse
-            </select><br>
-            <label class="form_label">Jogador</label>
-            <select name="player_id" required>
-                @forelse ($players as $player)
-                    <option value="{{ $player->id }}">{{ $player->name }}</option><br>
-                @empty
-                @endforelse
-            </select><br>
-            <label class="form_label">Força (2 a 4)</label>
-            <input type="number" name="strenght" value="2" min="2" max="4" required><br>
-            <label class="form_label">Agilidade (2 a 4)</label>
-            <input type="number" name="agility" value="2" min="2" max="4" required><br>
-            <label class="form_label">Astúcia (2 a 4)</label>
-            <input type="number" name="wits" value="2" min="2" max="4" required><br>
-            <label class="form_label">Empatia (2 a 4)</label>
-            <input type="number" name="empathy" value="2" min="2" max="4" required><br>
-
+@section('content')
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Cadastro de Personagem</h3>
         </div>
-        <div class="submit">
-            <button type="reset" name="Limpar" class="reset_btn">Limpar</button>
-            <input type="hidden" name="action" value="Enviar">
-            <button type="submit" name="Enviar" class="submit_btn">Cadastrar</button>
-        </div>
-        <div class="back">
-            <a href="/character/list">Voltar</a>
-        </div>
-    </form>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form class="form" method="post" action="{{ route('character.store') }}">
+            @csrf
+            <div class="row">
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" name="name" placeholder="Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>UUID</label>
+                            <input type="text" class="form-control" name="uuid" placeholder="UUID" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Slug</label>
+                            <input type="text" class="form-control" name="slug" placeholder="Slug" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Jogador</label>
+                            <select class="form-control" name="player_id" required>
+                                @forelse ($players as $player)
+                                    <option value="{{ $player->id }}">{{ $player->name }}</option><br>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
 
-</body>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Ascendência</label>
+                            <select class="form-control" name="race_id" required>
+                                @forelse ($races as $race)
+                                    <option value="{{ $race->id }}">{{ $race->name }}</option><br>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Profissão</label>
+                            <select class="form-control" name="profession_id" required>
+                                @forelse ($professions as $profession)
+                                    <option value="{{ $profession->id }}">{{ $profession->name }}</option><br>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+                        <table class="table table-lg">
+                            <tr>
+                                <th colspan="2">ATRIBUTOS (2 a 4, total 12)</th>
+                            </tr>
+                            <tr>
+                                <th>Força</th>
+                                <td> <input type="number" name="strenght" value="2" min="2" max="4"
+                                        required><br>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Agilidade</th>
+                                <td> <input type="number" name="agility" value="2" min="2" max="4"
+                                        required><br>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Astúcia</th>
+                                <td> <input type="number" name="wits" value="2" min="2" max="4"
+                                        required><br>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Empatia</th>
+                                <td> <input type="number" name="empathy" value="2" min="2" max="4"
+                                        required><br>
+                                    </select>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button type="reset" name="Limpar" class="btn btn-light">Limpar</button>
+                    <input type="hidden" name="action" value="Enviar">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button><br>
+                    <a class='btn btn-secundary' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                        </i> Voltar</a>
+                </div>
+        </form>
+    </div>
+    <!-- /.card-body -->
+@endsection
 
 </html>

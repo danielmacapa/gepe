@@ -1,40 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
+@extends('template.master2')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cadastro de Jogadores</title>
-</head>
-
-<body>
-    <h1>Formulário de Cadastro</h1>
-    <form class="form" method="post" action="{{ route('player.store') }}">
-        @csrf
-        <div class="form_grupo">
-            <label class="form_label">UUID</label>
-            <input type="text" name="uuid" placeholder="UUID" required><br>
-            <label class="form_label">Nome</label>
-            <input type="text" name="name" placeholder="Nome" required><br>
-            <label class="form_label">Slug</label>
-            <input type="text" name="slug" placeholder="Slug" required><br>
-            <label class="form_label">Descrição</label>
-            <input type="text" name="email" placeholder="E-mail" required><br>
-            <label class="form_label">Senha</label>
-            <input type="text" name="password" placeholder="Senha" required><br>
+@section('content')
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Cadastro de Jogador</h3>
         </div>
-        <div class="submit">
-            <button type="reset" name="Limpar" class="reset_btn">Limpar</button>
-            <input type="hidden" name="action" value="Enviar">
-            <button type="submit" name="Enviar" class="submit_btn">Cadastrar</button>
-        </div>
-        <div class="back">
-            <a href="/player/list">Voltar</a>
-        </div>
-
-    </form>
-
-</body>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form class="form" method="post" action="{{ route('player.store') }}">
+            @csrf
+            <div class="row">
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" name="name" placeholder="Nome" required>
+                        </div>
+                        <div class="form-group">
+                            <label>UUID</label>
+                            <input type="text" class="form-control" name="uuid" placeholder="UUID" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Slug</label>
+                            <input type="text" class="form-control" name="slug" placeholder="Slug" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input type="email" class="form-control" name="email" placeholder="E-mail" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Senha</label>
+                            <input type="password" class="form-control" name="password" placeholder="8 dígitos" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button type="reset" name="Limpar" class="btn btn-light">Limpar</button>
+                <input type="hidden" name="action" value="Enviar">
+                <button type="submit" class="btn btn-primary">Cadastrar</button><br>
+                <a class='btn btn-secundary' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                    </i> Voltar</a>
+            </div>
+        </form>
+    </div>
+    <!-- /.card-body -->
+@endsection
 
 </html>

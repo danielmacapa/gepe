@@ -1,57 +1,111 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
+@extends('template.master2')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Detalhes do Jogador</title>
-</head>
+@section('content')
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Detalhes do Jogador</h3>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <div class="table table-lg">
+                <table>
+                    <tr>
+                        <th class="table-primary">Nome:</th>
+                        <th>{{ $player->name }}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-primary">UUID:</th>
+                        <td>{{ $player->uuid }}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-primary">Slug:</th>
+                        <td>{{ $player->slug }}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-primary">E-mail:</th>
+                        <td>{{ $player->email }}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-primary">Cadastrado(a) em:</th>
+                        <td>{{ $player->created_at }}</td>
+                    </tr>
+                    <tr>
+                        <th class="table-primary">Atualizado(a) em:</th>
+                        <td>{{ $player->updated_at }}</td>
+                    </tr>
+                </table>
+                <br>
+                <a class='btn btn-primary btn-sm' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                    </i> Voltar</a>
 
-<body>
-    <div class="details">
-        <h1>Detalhes</h1>
-        Nome: {{ $player->name }}<br>
-        Slug: {{ $player->slug }}<br>
-        UUID: {{ $player->uuid }}<br>
-        E-mail: {{ $player->email }}<br>
-        Criado em: {{ $player->created_at }}<br>
-        Atualizado em: {{ $player->updated_at }}<br>
+            </div>
+        </div>
+        <!-- /.card-body -->
     </div>
-    <div class="list">
-        <h1>Personagens do jogador {{ $player->name }} </h1>
-        <table>
-            <tr>
-                <th>Nome</th>
-                <th>uuid</th>
-                <th>slug</th>
-                <th>Ascendência</th>
-                <th>Profissão</th>
-            </tr>
-            @forelse ($player->characters as $character)
-                <tr>
-                    <td>{{ $character->name }}</td>
-                    <td>{{ $character->uuid }}</td>
-                    <td>{{ $character->slug }}</td>
-                    <td>{{ $character->race->name }}</td>
-                    <td>{{ $character->profession->name }}</td>
-                    <!-- As duas views abaixo requerem uuid do registro, conforme rota -->
-                    <td><a href="{{ route('character.update', $character->uuid) }}">Editar</a></td>
-                    <td><a href="{{ route('character.delete', $character->uuid) }}">Excluir</a></td>
+    <div class="row">
+        <div class="col-12">
+            <div class="card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Personagens do jogador <b>{{ $player->name }}</b></h3>
 
-                </tr>
-            @empty
-                <tr>
-                    <td colspan=2>Não encontramos registros.</td>
-                </tr>
-            @endforelse
-        </table>
+                    <div class="card-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" class="form-control float-right"
+                                placeholder="Pesquisar">
+
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-default">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0" style="height: 300px;">
+                    <table class="table table-head-fixed text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Ascendência</th>
+                                <th colspan="4">Profissão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @forelse ($player->characters as $character)
+                                <tr>
+                                    <td>{{ $character->name }}</td>
+                                    <td>{{ $character->race->name }}</td>
+                                    <td>{{ $character->profession->name }}</td>
+                                    <!-- As três views abaixo requerem uuid do registro, conforme rota -->
+                                    <td><a href="{{ route('character.show', $character->uuid) }}"><i class='fa fa-eye'
+                                                title="Detalhes"></i></a>
+                                    </td>
+                                    <td><a href="{{ route('character.update', $character->uuid) }}"><i class='fa fa-edit'
+                                                title="Editar"></i></a>
+                                    </td>
+                                    <td><a href="{{ route('character.delete', $character->uuid) }}"><i class='fa fa-trash'
+                                                title="Excluir"></i></a>
+                                    </td>
+
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan=6>Não encontramos registros.</td>
+                                </tr>
+                            @endforelse
+                        </tbody>
+                    </table>
+                    <p><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
+                                class="fas fa-arrow-circle-left">
+                            </i> Voltar</a></p>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
     </div>
-    <div class="back">
-        <a href="/player/list">Voltar</a>
-    </div>
-
-
-</body>
+@endsection
 
 </html>

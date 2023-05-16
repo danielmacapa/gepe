@@ -1,41 +1,55 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
+@extends('template.master2')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Alteração de Jogador</title>
-</head>
-
-<body>
-    <h1>Formulário de Alteração</h1>
-    <form class="form" method="post" action="{{ route('player.put') }}">
-        @csrf
-        <!-- expira sessão-->
-        @method('PUT')
-        <!-- habilita PUT como método -->
-        <div class="form_grupo">
-            <input type="hidden" name="uuid" value="{{ $player->uuid }}">
-            <label class="form_label">Nome</label>
-            <input type="text" name="name" value="{{ $player->name }}"><br>
-            <label class="form_label">Slug</label>
-            <input type="text" name="slug" value="{{ $player->slug }}"><br>
-            <label class="form_label">Descrição</label>
-            <input type="text" name="email" value="{{ $player->email }}"><br>
-            <label class="form_label">Senha</label>
-            <input type="text" name="password" value="{{ $player->password }}"><br>
+@section('content')
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Edição de Jogador</h3>
         </div>
-        <div class="submit">
-            <input type="hidden" name="action" value="Enviar">
-            <button type="submit" name="Enviar" class="submit_btn">Atualizar</button>
-        </div>
-        <div class="back">
-            <a href="/player/list">Voltar</a>
-        </div>
-
-    </form>
-
-</body>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form class="form" method="post" action="{{ route('player.put') }}">
+            @csrf
+            <!-- expira sessão-->
+            @method('PUT')
+            <!-- habilita PUT como método -->
+            <div class="row">
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" name="name" value="{{ $player->name }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Slug</label>
+                            <input type="text" class="form-control" name="slug" value="{{ $player->slug }}" required>
+                        </div>
+                        <input type="hidden" class="form-control" name="uuid" value="{{ $player->uuid }}">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>E-mail</label>
+                            <input type="email" class="form-control" name="email" value="{{ $player->email }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Senha</label>
+                            <input type="password" class="form-control" name="password" value="{{ $player->password }}"
+                                required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class='btn btn-secundary' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                    </i> Voltar</a>
+                <input type="hidden" name="action" value="Enviar">
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card-body -->
+@endsection
 
 </html>
