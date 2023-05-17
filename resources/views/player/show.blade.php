@@ -1,4 +1,3 @@
-<html>
 @extends('template.master2')
 
 @section('content')
@@ -107,5 +106,3 @@
         </div>
     </div>
 @endsection
-
-</html>

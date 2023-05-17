@@ -18,10 +18,6 @@
                             <input type="text" class="form-control" name="name" placeholder="Nome" required>
                         </div>
                         <div class="form-group">
-                            <label>UUID</label>
-                            <input type="text" class="form-control" name="uuid" placeholder="UUID" required>
-                        </div>
-                        <div class="form-group">
                             <label>Slug</label>
                             <input type="text" class="form-control" name="slug" placeholder="Slug" required>
                         </div>
@@ -34,7 +30,6 @@
                                 @endforelse
                             </select>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-6 col-2">

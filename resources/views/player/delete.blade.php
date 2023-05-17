@@ -1,4 +1,3 @@
-<html>
 @extends('template.master')
 
 @section('title')
@@ -28,5 +27,3 @@
     <a class='btn btn-secundary' href="/player/list"><i class="fas fa-arrow-circle-left">
         </i> Voltar</a>
 @endsection
-
-</html>

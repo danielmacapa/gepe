@@ -1,72 +1,113 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+@extends('template.master2')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Alteração de Personagens</title>
-</head>
-
-<body>
-    <h1>Formulário de Alteração</h1>
-    <form class="form" method="post" action="{{ route('character.put') }}">
-        @csrf
-        <!-- expira sessão-->
-        @method('PUT')
-        <!-- habilita PUT como método -->
-        <div class="form_grupo">
-            <input type="hidden" name="uuid" value="{{ $character->uuid }}">
-            <label class="form_label">Nome</label>
-            <input type="text" name="name" value="{{ $character->name }}"><br>
-            <label class="form_label">Slug</label>
-            <input type="text" name="slug" value="{{ $character->slug }}"><br>
-            <label class="form_label">Ascendência</label>
-            <select name="race_id" required>
-                @forelse ($races as $race)
-                    <option value="{{ $race->id }}" @if ($race->id == $character->race_id) selected @endif>
-                        {{ $race->name }}
-                    </option><br>
-                @empty
-                @endforelse
-            </select><br>
-            <label class="form_label">Profissão</label>
-            <select name="profession_id" required>
-                @forelse ($professions as $profession)
-                    <option value="{{ $profession->id }}" @if ($profession->id == $character->profession_id) selected @endif>
-                        {{ $profession->name }}
-                    </option><br>
-                @empty
-                @endforelse
-            </select><br>
-            <label class="form_label">Jogador</label>
-            <select name="player_id" required>
-                @forelse ($players as $player)
-                    <option value="{{ $player->id }}" @if ($player->id == $character->player_id) selected @endif>
-                        {{ $player->name }}
-                    </option><br>
-                @empty
-                @endforelse
-            </select><br>
-            <label class="form_label">Força</label>
-            <input type="number" name="strenght" value="{{ $character->strenght }}" min="2" max="4"><br>
-            <label class="form_label">Agilidade</label>
-            <input type="number" name="agility" value="{{ $character->agility }}" min="2" max="4"><br>
-            <label class="form_label">Astúcia</label>
-            <input type="number" name="wits" value="{{ $character->wits }}" min="2" max="4"><br>
-            <label class="form_label">Empatia</label>
-            <input type="number" name="empathy" value="{{ $character->empathy }}" min="2" max="4"><br>
+@section('content')
+    <div class="card card-primary">
+        <div class="card-header">
+            <h3 class="card-title">Edição de Personagem</h3>
         </div>
-        <div class="submit">
-            <input type="hidden" name="action" value="Enviar">
-            <button type="submit" name="Enviar" class="submit_btn">Atualizar</button>
-        </div>
-        <div class="back">
-            <a href="/profession/list">Voltar</a>
-        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form class="form" method="post" action="{{ route('character.put') }}">
+            @csrf
+            <!-- expira sessão-->
+            @method('PUT')
+            <!-- habilita PUT como método -->
+            <div class="row">
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
+                        <input type="hidden" class="form-control" name="uuid" value="{{ $character->uuid }}">
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" name="name" value="{{ $character->name }}"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Slug</label>
+                            <input type="text" class="form-control" name="slug" value="{{ $character->slug }}"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label>Jogador</label>
+                            <select class="form-control" name="player_id" required>
+                                @forelse ($players as $player)
+                                    <option value="{{ $player->id }}" @if ($player->id == $character->player_id) selected @endif>
+                                        {{ $player->name }}
+                                    </option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
 
-    </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label>Ascendência</label>
+                            <select class="form-control" name="race_id" required>
+                                @forelse ($races as $race)
+                                    <option value="{{ $race->id }}" @if ($race->id == $character->race_id) selected @endif>
+                                        {{ $race->name }}
+                                    </option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Profissão</label>
+                            <select class="form-control" name="profession_id" required>
+                                @forelse ($professions as $profession)
+                                    <option value="{{ $profession->id }}" @if ($profession->id == $character->profession_id) selected @endif>
+                                        {{ $profession->name }}
+                                    </option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+                        <table class="table table-lg">
+                            <tr>
+                                <th colspan="2">ATRIBUTOS (2 a 4, total 12)</th>
+                            </tr>
+                            <tr>
+                                <th>Força</th>
+                                <td> <input type="number" name="strenght" value="{{ $character->strenght }}"
+                                        min="2" max="4" required><br>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Agilidade</th>
+                                <td> <input type="number" name="agility" value="{{ $character->agility }}" min="2"
+                                        max="4" required><br>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Astúcia</th>
+                                <td> <input type="number" name="wits" value="{{ $character->wits }}" min="2"
+                                        max="4" required><br>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Empatia</th>
+                                <td> <input type="number" name="empathy" value="{{ $character->empathy }}" min="2"
+                                        max="4" required><br>
+                                    </select>
+                                </td>
+                            </tr>
 
-</body>
-
-</html>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class='btn btn-secundary' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                    </i> Voltar</a>
+                <input type="hidden" name="action" value="Enviar">
+                <button type="submit" class="btn btn-primary">Atualizar</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.card-body -->
+@endsection

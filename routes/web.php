@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\RaceController;
 use App\Http\Controllers\ProfessionController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\CharacterController;
-
+use App\Http\Controllers\RaceController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,10 +17,15 @@ use App\Http\Controllers\CharacterController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+// Rotas de Auth sem verificação de e-mail
+Route::middleware('auth')->group(function () {
+    Route::get('/', [ProfileController::class, 'show']);
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Rotas do projeto
 Route::controller(RaceController::class)
 ->prefix('/race')->name('race.')
 ->group(function(){
@@ -88,3 +93,5 @@ Route::controller(CharacterController::class)
     Route::put('destroy', 'destroy' )->name('destroy');
 
 });
+
+require __DIR__.'/auth.php';

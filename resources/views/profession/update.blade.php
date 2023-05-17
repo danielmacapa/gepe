@@ -1,4 +1,3 @@
-<html>
 @extends('template.master2')
 
 @section('content')
@@ -62,5 +61,3 @@
     </div>
     <!-- /.card-body -->
 @endsection
-
-</html>

@@ -1,4 +1,3 @@
-<html>
 @extends('template.master2')
 
 @section('content')
@@ -20,10 +19,6 @@
                         <div class="form-group">
                             <label>Descrição</label>
                             <textarea class="form-control" name="description" placeholder="Descrição"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>UUID</label>
-                            <input type="text" class="form-control" name="uuid" placeholder="UUID" required>
                         </div>
                         <div class="form-group">
                             <label>Slug</label>
@@ -60,5 +55,3 @@
     </div>
     <!-- /.card-body -->
 @endsection
-
-</html>

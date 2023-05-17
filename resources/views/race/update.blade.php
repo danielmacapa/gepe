@@ -1,4 +1,3 @@
-<html>
 @extends('template.master2')
 
 @section('content')
@@ -17,10 +16,6 @@
                 <div class="col-lg-6 col-2">
                     <div class="card-body">
                         <div class="form-group">
-                            <label>Slug</label>
-                            <input type="text" class="form-control" name="slug" value="{{ $race->slug }}" required>
-                        </div>
-                        <div class="form-group">
                             <label>Nome</label>
                             <input type="text" class="form-control" name="name" value="{{ $race->name }}" required>
                         </div>
@@ -28,6 +23,11 @@
                             <label>Descrição</label>
                             <textarea class="form-control" name="description">{{ $race->description }}</textarea>
                         </div>
+                        <div class="form-group">
+                            <label>Slug</label>
+                            <input type="text" class="form-control" name="slug" value="{{ $race->slug }}" required>
+                        </div>
+
                         <input type="hidden" class="form-control" name="uuid" value="{{ $race->uuid }}">
                     </div>
                 </div>
@@ -55,5 +55,3 @@
     </div>
     <!-- /.card-body -->
 @endsection
-
-</html>
