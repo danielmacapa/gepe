@@ -1,7 +1,7 @@
 
-body{
+body1{
     margin: 0;
-    background: url("public/adminlte/img/fundo.jpg");
+    background: url("../img/fundo.jpg");
     background-repeat: no-repeat;
     background-color: black;
     background-size: cover;

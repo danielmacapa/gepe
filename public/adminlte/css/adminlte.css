@@ -67,6 +67,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -34981,6 +34982,10 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   height: 100vh;
   -ms-flex-pack: center;
   justify-content: center;
+  background: url("../img/fundo.jpg");
+  background-repeat: no-repeat;
+  background-color: black;
+  background-size: cover;
 }
 
 .login-box,

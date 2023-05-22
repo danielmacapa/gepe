@@ -1,4 +1,4 @@
-@extends('template.master2')
+@extends('template.master')
 
 @section('content')
     <div class="card card-primary">

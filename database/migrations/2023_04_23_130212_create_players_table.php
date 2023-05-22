@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->uuid()->unique;
-            $table->string('name');
+            $table->uuid();
+            $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->string('email')->unique();
             $table->string('password')->unique();
-            $table->string('slug')->unique();
             $table->timestamps();
             $table->softDeletes();
         });

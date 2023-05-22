@@ -8,37 +8,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GEPE | Gerenciador de Personagens</title>
+
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.css') }}">
+    <!-- Tema próprio -->
+    <link rel="stylesheet" href="{{ asset('adminlte/css/styleindex.css') }}">
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition layout-top-nav">
     <div class="wrapper">
 
         <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            @include('template.topo')
-        </nav>
-        <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            @include ('template.side')
-        </aside>
+        @include('template.nav')
+        <!-- /.navbar -->
 
         <!-- Content Wrapper. Contains page content -->
-
-
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
-                <div class="container-fluid">
+                <div class="container">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">@yield('title')</h1>
+                            <h1 class="m-0">
+                                @yield('title')
+                            </h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <span class="float-right">
+                                @yield('novo')
+                            </span>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -46,33 +50,34 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <!-- Alerta de erros para usuário -->
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li> {{ $error }} </li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <!-- validação -->
-            @if (session()->has('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            <!-- validação -->
-            @if (session()->has('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
-            @endif
-
             <div class="content">
-                @yield('content')
+                <div class="container">
+                    <!-- Alerta de erros para usuário -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li> {{ $error }} </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <!-- validação -->
+                    @if (session()->has('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    <!-- validação -->
+                    @if (session()->has('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    <!-- fim das validações -->
+
+                    @yield('content')
+                </div>
             </div>
             <!-- /.content -->
         </div>
@@ -81,19 +86,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
-            <div class="p-3">
-                <h5>Title</h5>
-                <p>Sidebar content</p>
-            </div>
         </aside>
         <!-- /.control-sidebar -->
 
         <!-- Main Footer -->
-    </div>
-    <footer class="main-footer">
         @include('template.footer')
-    </footer>
 
+    </div>
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->

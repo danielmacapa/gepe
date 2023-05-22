@@ -36,7 +36,7 @@
                 <a href="../../index2.html" class="h1"><b>GEPE</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Registrar um novo usuário</p>
+                <p class="login-box-msg">Registrar novo usuário</p>
 
                 <form action="{{ route('register') }}" method="post">
                     @csrf

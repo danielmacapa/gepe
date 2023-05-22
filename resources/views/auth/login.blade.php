@@ -61,7 +61,7 @@
                             <div class="icheck-primary">
                                 <input type="checkbox" id="remember">
                                 <label for="remember">
-                                    Lembre de mim
+                                    Lembrar de mim
                                 </label>
                             </div>
                         </div>
@@ -75,10 +75,10 @@
 
 
                 <p class="mb-1">
-                    <a href="forgot-password.html">Esqueci minha senha</a>
+                    <a href="forgot-password.html">Esqueci a senha</a>
                 </p>
                 <p class="mb-0">
-                    <a href="{{ route('register') }}" class="text-center">Cadastre-se</a>
+                    <a href="{{ route('register') }}" class="text-center">Cadastrar</a>
                 </p>
             </div>
             <!-- /.card-body -->

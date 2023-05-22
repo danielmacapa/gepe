@@ -4,10 +4,13 @@
     Lista de Ascendências
 @endsection
 
+@section('novo')
+    <a class='btn btn-primary btn-sm' href="{{ route('race.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
+    </a>
+@endsection
+
 @section('content')
     <div class='container-fluid'>
-        <p><a class='btn btn-primary btn-sm' href="{{ route('race.create') }}"><i class='fa fa-plus'></i> Cadastrar Novo
-            </a></p>
         <div class="card">
             <table class="table table-lg">
                 <tr class="table-primary">
