@@ -15,9 +15,12 @@
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/icheck-bootstrap/icheck-bootstrap.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.css') }}">
+    <!-- Tema customizado -->
+    <link rel="stylesheet" href="{{ asset('custom/css/style.css') }}">
+
 </head>
 
-<body class="hold-transition register-page" id="body">
+<body class="hold-transition register-page">
     <div class="register-box">
         <!-- aviso de erros -->
         @if ($errors->any())

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Race;
 use App\Models\Profession;
-use App\Models\Player;
+use App\Models\User;
 use App\Models\Character;
 use Illuminate\Support\Str;
 
@@ -26,7 +26,7 @@ class CharacterController extends Controller
     {
         $races = Race::all();
         $professions = Profession::all();
-        $players = Player::all();
+        $players = User::all();
         return view('character/create', compact('races', 'professions', 'players'));
     }
     public function store(Request $request)
@@ -41,7 +41,6 @@ class CharacterController extends Controller
         //valida as informações entradas
         $request->validate([
             'name'=> 'required|string|max:50',
-            'slug'=> 'required|string|max:10|unique:characters,slug',
             'race_id' => 'required',
             'profession_id' => 'required',
             'player_id' => 'required',
@@ -54,7 +53,6 @@ class CharacterController extends Controller
         $character = Character::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
-            'slug' => $request->slug,
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
             'player_id' => $request->player_id,
@@ -70,7 +68,7 @@ class CharacterController extends Controller
     {
         $races = Race::all();
         $professions = Profession::all();
-        $players = Player::all();
+        $players = User::all();
         $character = Character::where('uuid', $uuid)->first();
         return view('character/update', compact('character', 'races', 'professions', 'players'));
     }
@@ -96,7 +94,6 @@ class CharacterController extends Controller
 
         $character->update([
             'name' => $request->name,
-            'slug' => $request->slug,
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
             'player_id' => $request->player_id,

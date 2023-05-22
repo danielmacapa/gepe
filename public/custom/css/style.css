@@ -1,0 +1,43 @@
+body{
+    --primary-color:#cc8500 !important;
+    --secundary-color:#8d5c01 !important;
+}
+body, .content-wrapper{
+    margin: 0;
+    background-image: url('../img/fundo.jpg') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #5c4221 !important;
+}
+.content{
+    background: none !important;
+}
+.btn-primary {
+    color: rgb(232, 230, 227);
+    background-color: var(--primary-color);
+    border-color: none;
+    box-shadow: none;
+}
+.btn:hover {
+    color: rgb(232, 230, 227);
+    background-color: rgb(255, 136, 1);
+    border-color: rgb(141, 92, 1);
+    box-shadow: none;
+}
+.btn-secondary {
+    color: rgb(232, 230, 227);
+    background-color: var(--primary-color);
+    border-color: rgb(141, 92, 1);
+    box-shadow: none;
+}
+.card-primary.card-outline {
+    border-top: 3px solid rgb(141, 92, 1);
+}
+.card-primary:not(.card-outline) > .card-header {
+    background-color: var(--primary-color);
+}
+input.form-control{
+    background-color: #222;
+    color:rgb(255, 136, 1);
+
+}

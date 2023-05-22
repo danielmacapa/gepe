@@ -29,14 +29,12 @@ class RaceController extends Controller
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
             'name' => 'required|string|max:50|unique:races,name',
-            'slug' => 'required|string|max:10|unique:races,slug',
             'talent_name' => 'required|string|max:50|unique:races,talent_name'
         ]);
 
         $race = Race::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
-            'slug' => $request->slug,
             'description' => $request->description,
             'talent_name' => $request->talent_name,
             'talent_description' => $request->talent_description
@@ -59,13 +57,11 @@ class RaceController extends Controller
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
             'name' => 'required|string|max:50|unique:races,name',
-            'slug' => 'required|string|max:10|unique:races,slug',
             'talent_name' => 'required|string|max:50|unique:races,talent_name'
         ]);
 
         $race->update([
             'name' => $request->name,
-            'slug' => $request->slug,
             'description' => $request->description,
             'talent_name' => $request->talent_name,
             'talent_description' => $request->talent_description

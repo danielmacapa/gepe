@@ -21,7 +21,7 @@ return new class extends Migration
             $table->integer('empathy');
             $table->foreignId('race_id')->constrained();
             $table->foreignId('profession_id')->constrained();
-            $table->foreignId('player_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

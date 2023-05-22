@@ -1,5 +1,5 @@
 
-.body{
+.body1{
     margin: 0;
     background: url("../img/fundo.jpg");
     background-repeat: no-repeat;
@@ -10,44 +10,44 @@
     display: flex;
     flex-direction: column;
 }
-cabecalho{
+.cabecalho{
     height: 620px;
     background-color: #672d03a8;
 }
-LC{
+.LC{
 display:flex;
 justify-content:right;
 }
-login{
+.login{
     color: rgb(194, 131, 253);
     font-size: 30px;
     padding: 10px;
 }
-criar{
+.criar{
     color: rgb(136, 124, 124);
     font-size: 30px;
     padding: 10px;
 }
-logotitulo{
+.logotitulo{
     display:flex;
     flex-direction: column;
     align-items:center;
 
 }
-logotitulo img{
+.logotitulo img{
     height: 200px;
     width: 200px;
     padding-top: 20px;
 
 }
-logotitulo h1{
+.logotitulo h1{
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size:105px;
     color: #ccc;
     line-height: 0px;
 
 }
-logotitulo p{
+.logotitulo p{
     font-family: 'Times New Roman', Times, serif;
     font-size: 36px;
     color: #ccc;

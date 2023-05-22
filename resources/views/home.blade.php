@@ -1,57 +1,56 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>GEPE | Gerenciador de Personagens</title>
+    <title>GEPE - Gerenciador de Personagens</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
+    {{-- <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"> --}}
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.css') }}">
+    <!-- icheck bootstrap -->
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/icheck-bootstrap/icheck-bootstrap.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.css') }}">
-    <!-- Tema próprio -->
-    <link rel="stylesheet" href="{{ asset('adminlte/css/styleindex.css') }}">
+    <!-- Tema customizado -->
+    <link rel="stylesheet" href="{{ asset('custom/css/style.css') }}">
+
 </head>
 
-<body>
-    <div class="container">
-        <img src="{{ asset('adminlte/img/fundo.jpg') }}" class="img-responsive" alt="Responsive image">
+<body class="hold-transition login-page" id="body1">
+    <div class="login-box">
 
-        <div class="container-fluid">
-            <div id="cabecalho">
-                <div id="LC">
-                    <a id="login" href="{{ route('login') }}">Login</a>
-                    <a id="criar" href="{{ route('register') }}">Criar Usuario</a>
+        <!-- /.login-logo -->
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="../../index2.html" class="h1"><b>GEPE</a>
+            </div>
+            <div class="card-body">
+
+                <div class="input-group mb-3">
+                    <a href="{{ route('character.create') }}" class="text-center btn btn-primary form-control">Criar
+                        Ficha</a>
                 </div>
-                <div id="logotitulo">
-                    <img src="{{ asset('adminlte/img/gepeLogo.png') }}">
-                    <h1>GEPE</h1>
-                    <p>Gerador de Personagens</p>
+                <div class="input-group mb-3">
+                    <a href="{{ route('character.list') }}" class="text-center btn btn-secondary form-control">Listar
+                        Ficha</a>
                 </div>
             </div>
-            <div class="botoes">
-                <a href="{{ route('character.create') }}"><button id="bt1">Criar Ficha</button></a>
-                <a href="{{ route('character.list') }}"><button id="bt2">Acessar Ficha</button></a>
-            </div>
+            <!-- /.card-body -->
         </div>
+        <!-- /.card -->
     </div>
-    @include('template.footer')
+    <!-- /.login-box -->
 
-    <!-- REQUIRED SCRIPTS -->
-    <!-- jQuery -->
-    <script src="{{ asset('adminlte/plugins/jquery/jquery.js') }}"></script>
+    {{-- <!-- jQuery -->
+    <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap 4 -->
-    <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.js') }}"></script>
+    <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
-    <script src="{{ asset('adminlte/js/adminlte.js') }}"></script>
+    <script src="{{ asset('adminlte/js/adminlte.min.js') }}"></script> --}}
 </body>
 
 </html>

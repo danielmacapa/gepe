@@ -18,12 +18,12 @@ use App\Http\Controllers\RaceController;
 */
 
 // Rotas de Auth sem verificação de e-mail
+Route::get('/', [ProfileController::class, 'show']);
+
 Route::middleware('auth')->group(function () {
-    Route::get('/', [ProfileController::class, 'show']);
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
 // Rotas do projeto
 Route::controller(RaceController::class)
@@ -91,6 +91,8 @@ Route::controller(CharacterController::class)
 
     Route::get('delete/{uuid}', 'delete' )->name('delete');
     Route::put('destroy', 'destroy' )->name('destroy');
+
+});
 
 });
 

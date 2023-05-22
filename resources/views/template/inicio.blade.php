@@ -21,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('adminlte/css/styleindex.css') }}">
 </head>
 
-<body id="body" class=".img-responsive">
+<body id="body1">
     <div class="wrapper">
 
         <!-- Content Wrapper. Contains page content -->
