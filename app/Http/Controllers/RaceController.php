@@ -26,6 +26,13 @@ class RaceController extends Controller
     }
     public function store(Request $request)
     {
+        // regras de validação (precisa pedir para mostrar o erro, está no master template)
+        $request->validate([
+            'name' => 'required|string|max:50|unique:races,name',
+            'slug' => 'required|string|max:10|unique:races,slug',
+            'talent_name' => 'required|string|max:50|unique:races,talent_name'
+        ]);
+
         $race = Race::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
@@ -36,7 +43,7 @@ class RaceController extends Controller
 
         ]);
 
-        return redirect()->route('race.list');
+        return redirect()->route('race.list')->with('success', 'Ascendência cadastrada com sucesso!');
     }
 
     public function update($uuid)
@@ -49,6 +56,13 @@ class RaceController extends Controller
     {
         $race = Race::where('uuid', $request->uuid)->first();
 
+        // regras de validação (precisa pedir para mostrar o erro, está no master template)
+        $request->validate([
+            'name' => 'required|string|max:50|unique:races,name',
+            'slug' => 'required|string|max:10|unique:races,slug',
+            'talent_name' => 'required|string|max:50|unique:races,talent_name'
+        ]);
+
         $race->update([
             'name' => $request->name,
             'slug' => $request->slug,
@@ -57,7 +71,7 @@ class RaceController extends Controller
             'talent_description' => $request->talent_description
         ]);
 
-        return redirect()->route('race.list');
+        return redirect()->route('race.list')->with('success', 'Ascendência atualizada com sucesso!');
     }
 
     public function delete($uuid)
@@ -71,7 +85,7 @@ class RaceController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $race = Race::where('uuid', $request->uuid)->first();
         $race->delete();
-        return redirect()->route('race.list');
+        return redirect()->route('race.list')->with('success', 'Ascendência removida com sucesso!');
 
     }
 

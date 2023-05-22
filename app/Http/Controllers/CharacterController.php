@@ -40,15 +40,15 @@ class CharacterController extends Controller
 
         //valida as informações entradas
         $request->validate([
-            'name'=> 'required|string',
-            'slug'=> 'required|unique:characters',
+            'name'=> 'required|string|max:50',
+            'slug'=> 'required|string|max:10|unique:characters,slug',
             'race_id' => 'required',
             'profession_id' => 'required',
             'player_id' => 'required',
-            'strenght' => 'required|min:2|max:4',
-            'agility' => 'required|min:2|max:4',
-            'wits' => 'required|min:2|max:4',
-            'empathy' => 'required|min:2|max:4'
+            'strenght' => 'required|numeric|min:2|max:4',
+            'agility' => 'required|numeric|min:2|max:4',
+            'wits' => 'required|numeric|min:2|max:4',
+            'empathy' => 'required|numeric|min:2|max:4'
         ]);
 
         $character = Character::create([
@@ -63,8 +63,7 @@ class CharacterController extends Controller
             'wits' => $request->wits,
             'empathy' => $request->empathy
         ]);
-        return redirect()->route('character.list')
-        ->with('success', 'Personagem criado com sucesso!');
+        return redirect()->route('character.list')->with('success', 'Personagem criado com sucesso!');
     }
 
     public function update($uuid)
@@ -81,9 +80,10 @@ class CharacterController extends Controller
         $character = Character::where('uuid', $request->uuid)->first();
 
         //valida as informações entradas
+        /*
         $request->validate([
-            'name'=> 'required|string',
-            'slug'=> 'required|unique:character, slug',
+            'name'=> 'required|string|max:50',
+            'slug'=> 'required|max:10|unique:characters,slug',
             'race_id' => 'required',
             'profession_id' => 'required',
             'player_id' => 'required',
@@ -92,19 +92,20 @@ class CharacterController extends Controller
             'wits' => 'required|min:2|max:4',
             'empathy' => 'required|min:2|max:4'
         ]);
+        */
 
         $character->update([
             'name' => $request->name,
+            'slug' => $request->slug,
+            'race_id' => $request->race_id,
+            'profession_id' => $request->profession_id,
+            'player_id' => $request->player_id,
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,
-            'empathy' => $request->empathy,
-            'race_id' => $request->race_id,
-            'profession_id' => $request->profession_id,
-            'player_id' => $request->player_id
+            'empathy' => $request->empathy
         ]);
-        return redirect()->route('character.list')
-        ->with('success', 'Personagem atualizado com sucesso!');
+        return redirect()->route('character.list')->with('success', 'Personagem atualizado com sucesso!');
 
     }
 
@@ -119,8 +120,7 @@ class CharacterController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $character = Character::where('uuid', $request->uuid)->first();
         $character->delete();
-        return redirect()->route('character.list')
-        ->with('success', 'Personagem removido com sucesso!');
+        return redirect()->route('character.list')->with('success', 'Personagem removido com sucesso!');
         ;
     }
 }

@@ -1,4 +1,3 @@
-<html>
 @extends('template.master')
 
 @section('title')
@@ -20,8 +19,6 @@
         <input type="hidden" name="uuid" value="{{ $character->uuid }}">
         <button type="submit" class="btn btn-danger">Confirmar exclusão </button>
     </form>
-    <a class='btn btn-secundary' href="/race/list"><i class="fas fa-arrow-circle-left">
+    <a class='btn btn-secundary' href="{{ route('character.list') }}"><i class="fas fa-arrow-circle-left">
         </i> Voltar</a>
 @endsection
-
-</html>

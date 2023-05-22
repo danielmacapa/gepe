@@ -33,7 +33,7 @@
 
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
+                <a href="../../index2.html" class="h1"><b>GEPE</a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Registrar um novo usuário</p>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="input-group mb-3">
                         <input type="password" name='password_confirmation'class="form-control"
-                            placeholder="Retype password">
+                            placeholder="Repita a senha">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>

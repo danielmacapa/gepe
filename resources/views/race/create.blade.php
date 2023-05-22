@@ -45,7 +45,7 @@
                 <button type="reset" name="Limpar" class="btn btn-light">Limpar</button>
                 <input type="hidden" name="action" value="Enviar">
                 <button type="submit" class="btn btn-primary">Cadastrar</button><br>
-                <a class='btn btn-secundary' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                <a class='btn btn-secundary' href="{{ route('race.list') }}"><i class="fas fa-arrow-circle-left">
                     </i> Voltar</a>
             </div>
         </form>

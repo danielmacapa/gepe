@@ -25,6 +25,13 @@ class ProfessionController extends Controller
     }
     public function store(Request $request)
     {
+        // regras de validação (precisa pedir para mostrar o erro, está no master template)
+        $request->validate([
+            'name' => 'required|string|max:50|unique:professions,name',
+            'slug' => 'required|string|max:10|unique:professions,slug',
+            'talent_name' => 'required|string|max:50|unique:professions,talent_name'
+        ]);
+
         $category = Profession::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
@@ -35,7 +42,7 @@ class ProfessionController extends Controller
             'equipment' => $request->equipment
 
         ]);
-        return redirect()->route('profession.list');
+        return redirect()->route('profession.list')->with('success', 'Profissão cadastrada com sucesso!');
     }
 
     public function update($uuid)
@@ -48,6 +55,13 @@ class ProfessionController extends Controller
     {
         $profession = Profession::where('uuid', $request->uuid)->first();
 
+        // regras de validação (precisa pedir para mostrar o erro, está no master template)
+        $request->validate([
+            'name' => 'required|string|max:50|unique:professions,name',
+            'slug' => 'required|string|max:10|unique:professions,slug',
+            'talent_name' => 'required|string|max:50|unique:professions,talent_name'
+        ]);
+
         $profession->update([
             'name' => $request->name,
             'slug' => $request->slug,
@@ -57,7 +71,7 @@ class ProfessionController extends Controller
             'equipment' => $request->equipment
 
         ]);
-        return redirect()->route('profession.list');
+        return redirect()->route('profession.list')->with('success', 'Profissão atualizada com sucesso!');
     }
 
     public function delete($uuid)
@@ -71,7 +85,7 @@ class ProfessionController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $profession = Profession::where('uuid', $request->uuid)->first();
         $profession->delete();
-        return redirect()->route('profession.list');
+        return redirect()->route('profession.list')->with('success', 'Profissão removida com sucesso!');
     }
 
 }

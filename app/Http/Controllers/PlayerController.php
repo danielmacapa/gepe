@@ -26,14 +26,22 @@ class PlayerController extends Controller
     }
     public function store(Request $request)
     {
+        // regras de validação (precisa pedir para mostrar o erro, está no master template)
+        $request->validate([
+            'name' => 'required|string|max:50|unique:players,name',
+            'slug' => 'required|string|max:10|unique:players,slug',
+            'email' => 'required|email|unique:players,email'
+        ]);
+
         $player = Player::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
+            'slug' => $request->slug,
             'email'=> $request->email,
-            'password'=>$request->password,
-            'slug' => $request->slug
+            'password'=>$request->password
         ]);
-        return redirect()->route('player.list');
+        return redirect()->route('player.list')->with('success', 'Jogador cadastrado com sucesso!');
+        // with: mensagem;
     }
 
     public function update($uuid)
@@ -46,14 +54,21 @@ class PlayerController extends Controller
     {
         $player = Player::where('uuid', $request->uuid)->first();
 
-        $player->update([
-            'name' => $request->name,
-            'email'=> $request->email,
-            'password'=>$request->password,
-            'slug' => $request->slug
+        // regras de validação (precisa pedir para mostrar o erro, está no master template)
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'slug' => 'required|string|max:10',
+            'email' => 'required|email'
         ]);
 
-        return redirect()->route('player.list');
+        $player->update([
+            'name' => $request->name,
+            'slug' => $request->slug,
+            'email'=> $request->email,
+            'password'=>$request->password
+        ]);
+
+        return redirect()->route('player.list')->with('success', 'Jogador atualizado com sucesso!');
     }
 
     public function delete($uuid)
@@ -67,7 +82,7 @@ class PlayerController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $player = Player::where('uuid', $request->uuid)->first();
         $player->delete();
-        return redirect()->route('player.list');
+        return redirect()->route('player.list')->with('success', 'Jogador removido com sucesso!');
     }
 
 }

@@ -47,7 +47,7 @@
                     </tr>
                 </table>
                 <br>
-                <a class='btn btn-primary btn-sm' href="javascript:history.back()"><i class="fas fa-arrow-circle-left">
+                <a class='btn btn-primary btn-sm' href="{{ route('profession.list') }}"><i class="fas fa-arrow-circle-left">
                     </i> Voltar</a>
             </div>
         </div>
@@ -109,7 +109,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <p><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
+                    <p><a class='btn btn-primary btn-sm' href="{{ route('profession.list') }}"><i
                                 class="fas fa-arrow-circle-left">
                             </i> Voltar</a></p>
                 </div>
