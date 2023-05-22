@@ -10,14 +10,14 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.css') }}">
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href="{{ asset('adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/plugins/icheck-bootstrap/icheck-bootstrap.css') }}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.css') }}">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" id="body">
     <div class="login-box">
         <!-- aviso de erros -->
         @if ($errors->any())
@@ -36,7 +36,7 @@
                 <a href="../../index2.html" class="h1"><b>GEPE</a>
             </div>
             <div class="card-body">
-                <p class="login-box-msg">Faça o login para iniciar sua sessão</p>
+                <p class="login-box-msg">Faça o login para iniciar a sessão</p>
 
                 <form action="{{ route('login') }}" method="post">
                     @csrf

@@ -21,29 +21,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('adminlte/css/styleindex.css') }}">
 </head>
 
-<body>
-    <div class="container">
-        <img src="{{ asset('adminlte/img/fundo.jpg') }}" class="img-responsive" alt="Responsive image">
+<body id="body" class=".img-responsive">
+    <div class="wrapper">
 
-        <div class="container-fluid">
-            <div id="cabecalho">
-                <div id="LC">
-                    <a id="login" href="{{ route('login') }}">Login</a>
-                    <a id="criar" href="{{ route('register') }}">Criar Usuario</a>
-                </div>
-                <div id="logotitulo">
-                    <img src="{{ asset('adminlte/img/gepeLogo.png') }}">
-                    <h1>GEPE</h1>
-                    <p>Gerador de Personagens</p>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <div class="content">
+                <div class="container">
+                    @yield('content')
                 </div>
             </div>
-            <div class="botoes">
-                <a href="{{ route('character.create') }}"><button id="bt1">Criar Ficha</button></a>
-                <a href="{{ route('character.list') }}"><button id="bt2">Acessar Ficha</button></a>
-            </div>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
+
+        <!-- Main Footer -->
+        @include('template.footer')
+
     </div>
-    @include('template.footer')
+    <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
     <!-- jQuery -->
