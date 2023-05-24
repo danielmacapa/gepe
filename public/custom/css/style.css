@@ -1,43 +1,54 @@
 body{
     --primary-color:#cc8500 !important;
     --secundary-color:#8d5c01 !important;
+    --tertiary-color:#ff8801 !important;
 }
 body, .content-wrapper{
     margin: 0;
     background-image: url('../img/fundo.jpg') !important;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #5c4221 !important;
+    background-color: var(--secundary-color);
 }
 .content{
     background: none !important;
 }
-.btn-primary {
-    color: rgb(232, 230, 227);
-    background-color: var(--primary-color);
-    border-color: none;
+.btn:hover {
+    color: #e8e6e3;
+    background-color: var(--secundary-color);
+    border-color: var(--primary-color);
     box-shadow: none;
 }
-.btn:hover {
-    color: rgb(232, 230, 227);
-    background-color: rgb(255, 136, 1);
-    border-color: rgb(141, 92, 1);
+.btn-primary {
+    color: #e8e6e3;
+    background-color: var(--primary-color);
+    border-color: var(--secundary-color) !important;
     box-shadow: none;
 }
 .btn-secondary {
-    color: rgb(232, 230, 227);
+    color: #e8e6e3;
     background-color: var(--primary-color);
-    border-color: rgb(141, 92, 1);
+    border-color: var(--secundary-color);
     box-shadow: none;
 }
+
 .card-primary.card-outline {
-    border-top: 3px solid rgb(141, 92, 1);
+    border-top: 3px solid var(--secundary-color);
 }
 .card-primary:not(.card-outline) > .card-header {
     background-color: var(--primary-color);
 }
 input.form-control{
     background-color: #222;
-    color:rgb(255, 136, 1);
+    color: var(--tertiary-color);
 
+}
+a {
+    color: var(--tertiary-color);
+    text-decoration-color: initial;
+    background-color: transparent;
+}
+.navbar-white {
+    background-color: var(--primary-color);
+    color: #1f2d3d;
 }

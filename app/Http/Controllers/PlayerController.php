@@ -29,14 +29,12 @@ class PlayerController extends Controller
     //     // regras de validação (precisa pedir para mostrar o erro, está no master template)
     //     $request->validate([
     //         'name' => 'required|string|max:50|unique:players,name',
-    //         'slug' => 'required|string|max:10|unique:players,slug',
     //         'email' => 'required|email|unique:players,email'
     //     ]);
 
     //     $player = User::create([
     //         'uuid' => Str::uuid(),
     //         'name' => $request->name,
-    //         'slug' => $request->slug,
     //         'email'=> $request->email,
     //         'password'=>$request->password
     //     ]);

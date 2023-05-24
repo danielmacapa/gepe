@@ -15,7 +15,6 @@ class Character extends Model
     protected $fillable = [
         'uuid',
         'name',
-        'slug',
         'strenght',
         'agility',
         'wits',

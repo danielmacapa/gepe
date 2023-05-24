@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="hold-transition login-page" id="body1">
+<body class="login-page" id="body1">
     <div class="login-box">
 
         <!-- /.login-logo -->

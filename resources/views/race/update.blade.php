@@ -23,11 +23,6 @@
                             <label>Descrição</label>
                             <textarea class="form-control" name="description">{{ $race->description }}</textarea>
                         </div>
-                        <div class="form-group">
-                            <label>Slug</label>
-                            <input type="text" class="form-control" name="slug" value="{{ $race->slug }}" required>
-                        </div>
-
                         <input type="hidden" class="form-control" name="uuid" value="{{ $race->uuid }}">
                     </div>
                 </div>

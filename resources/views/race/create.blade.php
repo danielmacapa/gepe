@@ -20,11 +20,6 @@
                             <label>Descrição</label>
                             <textarea class="form-control" name="description" placeholder="Descrição"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label>Slug</label>
-                            <input type="text" class="form-control" name="slug" placeholder="Slug" required>
-                        </div>
-
                     </div>
                 </div>
                 <div class="col-lg-6 col-2">

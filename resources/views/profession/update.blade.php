@@ -24,11 +24,6 @@
                             <label>Descrição</label>
                             <textarea class="form-control" name="description">{{ $profession->description }}</textarea>
                         </div>
-                        <div class="form-group">
-                            <label>Slug</label>
-                            <input type="text" class="form-control" name="slug" value="{{ $profession->slug }}"
-                                required>
-                        </div>
                         <input type="hidden" class="form-control" name="uuid" value="{{ $profession->uuid }}">
                     </div>
                 </div>

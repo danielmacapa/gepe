@@ -56,13 +56,11 @@ class ProfessionController extends Controller
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
             'name' => 'required|string|max:50|unique:professions,name',
-            'slug' => 'required|string|max:10|unique:professions,slug',
             'talent_name' => 'required|string|max:50|unique:professions,talent_name'
         ]);
 
         $profession->update([
             'name' => $request->name,
-            'slug' => $request->slug,
             'description' => $request->description,
             'talent_name' => $request->talent_name,
             'talent_description' => $request->talent_description,

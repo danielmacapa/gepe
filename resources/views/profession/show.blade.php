@@ -14,14 +14,6 @@
                         <th>{{ $profession->name }}</th>
                     </tr>
                     <tr>
-                        <th class="table-primary">UUID:</th>
-                        <td>{{ $profession->uuid }}</td>
-                    </tr>
-                    <tr>
-                        <th class="table-primary">Slug:</th>
-                        <td>{{ $profession->slug }}</td>
-                    </tr>
-                    <tr>
                         <th class="table-primary">Descrição:</th>
                         <td>{{ $profession->description }}</td>
                     </tr>

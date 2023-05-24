@@ -15,7 +15,6 @@ class Player extends Model
         protected $fillable = [
             'uuid',
             'name',
-            'slug',
             'email',
             'password'
         ];

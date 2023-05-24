@@ -20,7 +20,7 @@
 
 </head>
 
-<body class="hold-transition register-page">
+<body class="register-page">
     <div class="register-box">
         <!-- aviso de erros -->
         @if ($errors->any())

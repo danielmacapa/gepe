@@ -15,7 +15,6 @@ class Profession extends Model
         protected $fillable = [
             'uuid',
             'name',
-            'slug',
             'description',
             'talent_name',
             'talent_description',

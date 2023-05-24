@@ -14,14 +14,6 @@
                         <th>{{ $race->name }}</th>
                     </tr>
                     <tr>
-                        <th class="table-primary">UUID:</th>
-                        <td>{{ $race->uuid }}</td>
-                    </tr>
-                    <tr>
-                        <th class="table-primary">Slug:</th>
-                        <td>{{ $race->slug }}</td>
-                    </tr>
-                    <tr>
                         <th class="table-primary">Descrição:</th>
                         <td>{{ $race->description }}</td>
                     </tr>

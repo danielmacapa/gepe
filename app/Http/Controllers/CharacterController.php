@@ -26,8 +26,8 @@ class CharacterController extends Controller
     {
         $races = Race::all();
         $professions = Profession::all();
-        $players = User::all();
-        return view('character/create', compact('races', 'professions', 'players'));
+        $users = User::all();
+        return view('character/create', compact('races', 'professions', 'users'));
     }
     public function store(Request $request)
     {
@@ -43,19 +43,18 @@ class CharacterController extends Controller
             'name'=> 'required|string|max:50',
             'race_id' => 'required',
             'profession_id' => 'required',
-            'player_id' => 'required',
+            'user_id' => 'required',
             'strenght' => 'required|numeric|min:2|max:4',
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
             'empathy' => 'required|numeric|min:2|max:4'
         ]);
-
         $character = Character::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
-            'player_id' => $request->player_id,
+            'user_id' => $request->user_id,
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,
@@ -68,9 +67,9 @@ class CharacterController extends Controller
     {
         $races = Race::all();
         $professions = Profession::all();
-        $players = User::all();
+        $users = User::all();
         $character = Character::where('uuid', $uuid)->first();
-        return view('character/update', compact('character', 'races', 'professions', 'players'));
+        return view('character/update', compact('character', 'races', 'professions', 'users'));
     }
 
     public function put(Request $request)
@@ -78,25 +77,20 @@ class CharacterController extends Controller
         $character = Character::where('uuid', $request->uuid)->first();
 
         //valida as informações entradas
-        /*
         $request->validate([
             'name'=> 'required|string|max:50',
-            'slug'=> 'required|max:10|unique:characters,slug',
             'race_id' => 'required',
             'profession_id' => 'required',
-            'player_id' => 'required',
-            'strenght' => 'required|min:2|max:4',
-            'agility' => 'required|min:2|max:4',
-            'wits' => 'required|min:2|max:4',
-            'empathy' => 'required|min:2|max:4'
+            'strenght' => 'required|numeric|min:2|max:4',
+            'agility' => 'required|numeric|min:2|max:4',
+            'wits' => 'required|numeric|min:2|max:4',
+            'empathy' => 'required|numeric|min:2|max:4'
         ]);
-        */
 
         $character->update([
             'name' => $request->name,
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
-            'player_id' => $request->player_id,
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,

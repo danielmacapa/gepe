@@ -16,14 +16,6 @@
                                 <th>{{ $character->name }}</th>
                             </tr>
                             <tr>
-                                <th class="table-primary">UUID:</th>
-                                <td>{{ $character->uuid }}</td>
-                            </tr>
-                            <tr>
-                                <th class="table-primary">Slug:</th>
-                                <td>{{ $character->slug }}</td>
-                            </tr>
-                            <tr>
                                 <th class="table-primary">Jogador:</th>
                                 <td>{{ $character->player->name }}</td>
                             </tr>
