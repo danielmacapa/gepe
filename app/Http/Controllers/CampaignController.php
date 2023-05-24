@@ -41,7 +41,7 @@ class CampaignController extends Controller
     public function update($uuid)
     {
         $campaign = Campaign::where('uuid', $uuid)->first();
-        return view('campaign/update', compact('campaigns'));
+        return view('campaign/update', compact('campaign'));
     }
 
     public function put(Request $request)
@@ -50,7 +50,7 @@ class CampaignController extends Controller
 
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
-            'name' => 'required|string|max:50|unique:races,name'
+            'name' => 'required|string|max:50|unique:campaigns,name'
         ]);
 
         $campaign->update([
@@ -64,7 +64,7 @@ class CampaignController extends Controller
     public function delete($uuid)
     {
         $campaign = Campaign::where('uuid', $uuid)->first();
-        return view('campaign/delete', compact('campaigns'));
+        return view('campaign/delete', compact('campaign'));
     }
 
     public function destroy(Request $request)

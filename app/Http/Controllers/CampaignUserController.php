@@ -18,7 +18,7 @@ class CampaignUserController extends Controller
     public function show($uuid)
     {
         $campaign_user = Campaign_User::where('uuid', $uuid)->first();
-        return view('campaign_user/show', compact('campaign_users'));
+        return view('campaign_user/show', compact('campaign_user'));
     }
     public function create()
     {
@@ -70,7 +70,7 @@ class CampaignUserController extends Controller
     public function delete($uuid)
     {
         $campaign_user = Campaign_User::where('uuid', $uuid)->first();
-        return view('campaign_user/delete', compact('campaign_users'));
+        return view('campaign_user/delete', compact('campaign_user'));
     }
 
     public function destroy(Request $request)

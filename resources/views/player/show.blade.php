@@ -13,17 +13,8 @@
                         <th class="table-primary">Nome:</th>
                         <th>{{ $player->name }}</th>
                     </tr>
-                    <tr>
-                        <th class="table-primary">UUID:</th>
-                        <td>{{ $player->uuid }}</td>
-                    </tr>
-                    <tr>
-                        <th class="table-primary">Slug:</th>
-                        <td>{{ $player->slug }}</td>
-                    </tr>
-                    <tr>
-                        <th class="table-primary">E-mail:</th>
-                        <td>{{ $player->email }}</td>
+                    <th class="table-primary">E-mail:</th>
+                    <td>{{ $player->email }}</td>
                     </tr>
                     <tr>
                         <th class="table-primary">Cadastrado(a) em:</th>

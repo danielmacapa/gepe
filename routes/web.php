@@ -6,6 +6,9 @@ use App\Http\Controllers\ProfessionController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\RaceController;
+use App\Http\Controllers\CampaignController;
+use App\Http\Controllers\CampaignUserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes

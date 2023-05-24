@@ -41,7 +41,7 @@ class CharacterController extends Controller
         $total = $a + $b + $c + $d;*/
 
         //valida as informações entradas
-        $user = auth()->user();
+        $user = auth()->user()->id;
 
         $request->validate([
             'name'=> 'required|string|max:50',
@@ -112,7 +112,7 @@ class CharacterController extends Controller
     public function delete($uuid)
     {
         $character = Character::where('uuid', $uuid)->first();
-        return view('character/delete', compact('characters'));
+        return view('character/delete', compact('character'));
     }
 
     public function destroy(Request $request)

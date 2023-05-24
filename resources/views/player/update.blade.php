@@ -19,10 +19,6 @@
                             <label>Nome</label>
                             <input type="text" class="form-control" name="name" value="{{ $player->name }}" required>
                         </div>
-                        <div class="form-group">
-                            <label>Slug</label>
-                            <input type="text" class="form-control" name="slug" value="{{ $player->slug }}" required>
-                        </div>
                         <input type="hidden" class="form-control" name="uuid" value="{{ $player->uuid }}">
                     </div>
                 </div>

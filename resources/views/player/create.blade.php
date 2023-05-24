@@ -16,22 +16,16 @@
                             <label>Nome</label>
                             <input type="text" class="form-control" name="name" placeholder="Nome" required>
                         </div>
-                        <div class="form-group">
-                            <label>Slug</label>
-                            <input type="text" class="form-control" name="slug" placeholder="Slug" required>
-                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-2">
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label>E-mail</label>
-                            <input type="email" class="form-control" name="email" placeholder="E-mail" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Senha</label>
-                            <input type="password" class="form-control" name="password" placeholder="8 dígitos" required>
-                        </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" class="form-control" name="email" placeholder="E-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Senha</label>
+                        <input type="password" class="form-control" name="password" placeholder="8 dígitos" required>
                     </div>
                 </div>
             </div>

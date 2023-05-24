@@ -46,7 +46,7 @@ class ProfessionController extends Controller
     public function update($uuid)
     {
         $profession = Profession::where('uuid', $uuid)->first();
-        return view('profession/update', compact('professions'));
+        return view('profession/update', compact('profession'));
     }
 
     public function put(Request $request)
@@ -73,7 +73,7 @@ class ProfessionController extends Controller
     public function delete($uuid)
     {
         $profession = Profession::where('uuid', $uuid)->first();
-        return view('profession/delete', compact('professions'));
+        return view('profession/delete', compact('profession'));
     }
 
     public function destroy(Request $request)
