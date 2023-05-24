@@ -18,7 +18,7 @@ class RaceController extends Controller
     public function show($uuid)
     {
         $race = Race::where('uuid', $uuid)->first();
-        return view('race/show', compact('race'));
+        return view('race/show', compact('races'));
     }
     public function create()
     {
@@ -47,7 +47,7 @@ class RaceController extends Controller
     public function update($uuid)
     {
         $race = Race::where('uuid', $uuid)->first();
-        return view('race/update', compact('race'));
+        return view('race/update', compact('races'));
     }
 
     public function put(Request $request)
@@ -73,7 +73,7 @@ class RaceController extends Controller
     public function delete($uuid)
     {
         $race = Race::where('uuid', $uuid)->first();
-        return view('race/delete', compact('race'));
+        return view('race/delete', compact('races'));
     }
 
     public function destroy(Request $request)

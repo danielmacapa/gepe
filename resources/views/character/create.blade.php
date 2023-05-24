@@ -36,7 +36,15 @@
                                     @endforelse
                                 </select>
                             </div>
-                            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                            <div class="form-group">
+                                <label>Campanha</label>
+                                <select class="form-control" name="campaign_id" required>
+                                    @forelse ($campaigns as $campaign)
+                                        <option value="{{ $campaign->id }}">{{ $campaign->name }}</option><br>
+                                    @empty
+                                    @endforelse
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="col-lg-6 col-2">

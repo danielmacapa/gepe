@@ -94,6 +94,40 @@ Route::controller(CharacterController::class)
 
 });
 
+Route::controller(CampaignController::class)
+->prefix('/campaign')->name('campaign.')
+->group(function(){
+    Route::get('/list', 'list' )->name('list');
+    Route::get('/show/{uuid}', 'show' )->name('show');
+
+    Route::get('create', 'create' )->name('create');
+    Route::post('store', 'store' )->name('store');
+
+    Route::get('update/{uuid}', 'update' )->name('update');
+    Route::put('put', 'put' )->name('put');
+
+    Route::get('delete/{uuid}', 'delete' )->name('delete');
+    Route::put('destroy', 'destroy' )->name('destroy');
+
+});
+
+Route::controller(CampaignUserController::class)
+->prefix('/campaign_user')->name('campaign_user.')
+->group(function(){
+    Route::get('/list', 'list' )->name('list');
+    Route::get('/show/{uuid}', 'show' )->name('show');
+
+    Route::get('create', 'create' )->name('create');
+    Route::post('store', 'store' )->name('store');
+
+    Route::get('update/{uuid}', 'update' )->name('update');
+    Route::put('put', 'put' )->name('put');
+
+    Route::get('delete/{uuid}', 'delete' )->name('delete');
+    Route::put('destroy', 'destroy' )->name('destroy');
+
+});
+
 });
 
 require __DIR__.'/auth.php';

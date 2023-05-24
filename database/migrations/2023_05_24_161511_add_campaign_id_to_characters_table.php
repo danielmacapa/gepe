@@ -11,13 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('campaigns', function (Blueprint $table) {
-            $table->id();
-            $table->uuid();
-            $table->string('name')->unique();
-            $table->longText('description')->nullable();
-            $table->timestamps();
-            $table->softDeletes();
+        Schema::table('characters', function (Blueprint $table) {
+            $table->foreignId('campaign_id')->constrained()->after('user_id');
         });
     }
 
@@ -26,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('campaigns');
+        Schema::table('characters', function (Blueprint $table) {
+            $table->foreignId('campaign_id')->constrained()->after('user_id');
+        });
     }
 };

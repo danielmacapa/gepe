@@ -36,5 +36,10 @@ class Character extends Model
     {
         return $this->belongsTo(Player::class);
     }
+    public function campaign():BelongsTo
+    {
+        return $this->belongsTo(Campaign::class);
+    }
+
 
 }

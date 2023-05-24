@@ -25,6 +25,7 @@
                         <li><a href="{{ route('player.list') }}" class="dropdown-item">Jogadores</a></li>
                         <li><a href="{{ route('race.list') }}" class="dropdown-item">Ascendências</a></li>
                         <li><a href="{{ route('profession.list') }}" class="dropdown-item">Profissões</a></li>
+                        <li><a href="{{ route('campaign.list') }}" class="dropdown-item">Campanhas</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">

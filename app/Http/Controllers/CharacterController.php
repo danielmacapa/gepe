@@ -7,6 +7,7 @@ use App\Models\Race;
 use App\Models\Profession;
 use App\Models\User;
 use App\Models\Character;
+use App\Models\Campaign;
 use Illuminate\Support\Str;
 
 class CharacterController extends Controller
@@ -27,7 +28,8 @@ class CharacterController extends Controller
         $races = Race::all();
         $professions = Profession::all();
         $users = User::all();
-        return view('character/create', compact('races', 'professions', 'users'));
+        $campaigns = Campaign::all();
+        return view('character/create', compact('races', 'professions', 'campaigns', 'users'));
     }
     public function store(Request $request)
     {
@@ -39,6 +41,8 @@ class CharacterController extends Controller
         $total = $a + $b + $c + $d;*/
 
         //valida as informações entradas
+        $user = auth()->user();
+
         $request->validate([
             'name'=> 'required|string|max:50',
             'race_id' => 'required',
@@ -47,18 +51,21 @@ class CharacterController extends Controller
             'strenght' => 'required|numeric|min:2|max:4',
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
-            'empathy' => 'required|numeric|min:2|max:4'
+            'empathy' => 'required|numeric|min:2|max:4',
+            'level' => 'numeric|min:1'
         ]);
         $character = Character::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
-            'user_id' => $request->user_id,
+            'user_id' => $user->id,
+            'campaign_id' => $request->campaign_id,
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,
-            'empathy' => $request->empathy
+            'empathy' => $request->empathy,
+            'level' => '1'
         ]);
         return redirect()->route('character.list')->with('success', 'Personagem criado com sucesso!');
     }
@@ -68,8 +75,9 @@ class CharacterController extends Controller
         $races = Race::all();
         $professions = Profession::all();
         $users = User::all();
+        $campaings = Campaign::all();
         $character = Character::where('uuid', $uuid)->first();
-        return view('character/update', compact('character', 'races', 'professions', 'users'));
+        return view('character/update', compact('characters', 'races', 'professions', 'campaigns', 'users'));
     }
 
     public function put(Request $request)
@@ -91,6 +99,7 @@ class CharacterController extends Controller
             'name' => $request->name,
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
+            'campaign_id' => $request->campaign_id,
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,
@@ -103,7 +112,7 @@ class CharacterController extends Controller
     public function delete($uuid)
     {
         $character = Character::where('uuid', $uuid)->first();
-        return view('character/delete', compact('character'));
+        return view('character/delete', compact('characters'));
     }
 
     public function destroy(Request $request)

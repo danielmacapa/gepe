@@ -49,5 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Character::class);
     }
+    public function campaign_user(): HasMany
+    {
+        return $this->hasMany(Campaign_User::class);
+    }
+
 
 }

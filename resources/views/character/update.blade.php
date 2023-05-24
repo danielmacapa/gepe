@@ -59,14 +59,26 @@
                                 @endforelse
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label>Campanha</label>
+                            <select class="form-control" name="campaign_id" required>
+                                @forelse ($campaigns as $campaign)
+                                    <option value="{{ $campaign->id }}" @if ($campaign->id == $character->campaign_id) selected @endif>
+                                        {{ $campaign->name }}
+                                    </option>
+                                @empty
+                                @endforelse
+                            </select>
+                        </div>
+
                         <table class="table table-lg">
                             <tr>
                                 <th colspan="2">ATRIBUTOS (2 a 4, total 12)</th>
                             </tr>
                             <tr>
                                 <th>Força</th>
-                                <td> <input type="number" name="strenght" value="{{ $character->strenght }}" min="2"
-                                        max="4" required><br>
+                                <td> <input type="number" name="strenght" value="{{ $character->strenght }}"
+                                        min="2" max="4" required><br>
                                     </select>
                                 </td>
                             </tr>
