@@ -15,6 +15,15 @@
                     <div class="col-lg-6 col-2">
                         <div class="card-body">
                             <div class="form-group">
+                                <label>Jogador</label>
+                                <select class="form-control" name="user_id" required>
+                                    @forelse ($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->name }}</option><br>
+                                    @empty
+                                    @endforelse
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Nome</label>
                                 <input type="text" class="form-control" name="name" placeholder="Nome" required>
                             </div>

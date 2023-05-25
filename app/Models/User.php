@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Database\Eloquent\Model;
 
 
 class User extends Authenticatable
@@ -49,7 +50,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Character::class);
     }
-    public function campaign_user(): HasMany
+    public function campaign_users(): HasMany
     {
         return $this->hasMany(Campaign_User::class);
     }

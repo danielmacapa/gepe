@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfessionController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\CharacterController;
 use App\Http\Controllers\RaceController;
 use App\Http\Controllers\CampaignController;

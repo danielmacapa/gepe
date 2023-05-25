@@ -41,7 +41,7 @@ class CharacterController extends Controller
         $total = $a + $b + $c + $d;*/
 
         //valida as informações entradas
-        $user = auth()->user()->id;
+        $logged = auth()->user()->id;
 
         $request->validate([
             'name'=> 'required|string|max:50',
@@ -53,20 +53,19 @@ class CharacterController extends Controller
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
             'empathy' => 'required|numeric|min:2|max:4',
-            'level' => 'numeric|min:1'
         ]);
         $character = Character::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
-            'user_id' => $user->id,
+            'user_id' => $request->user_id,
             'campaign_id' => $request->campaign_id,
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,
             'empathy' => $request->empathy,
-            'level' => '1'
+            'level' => "1"
         ]);
         return redirect()->route('character.list')->with('success', 'Personagem criado com sucesso!');
     }

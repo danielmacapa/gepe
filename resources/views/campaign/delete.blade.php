@@ -7,7 +7,7 @@
 @section('content')
     <div class="alert alert-danger alert-dismissible">
         <h5><i class="icon fas fa-ban"></i> Atenção!</h5>
-        @if (count($campaign->characters) > 0)
+        @if (count($campaign->character) > 0)
             Esta campanha possui um ou mais personagens.<br>
             Você não pode excluí-la!<br><br>
         @else

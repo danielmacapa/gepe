@@ -22,7 +22,8 @@ class Character extends Model
         'race_id',
         'profession_id',
         'user_id',
-        'campaign_id'
+        'campaign_id',
+        'level'
     ];
 
     public function race():BelongsTo

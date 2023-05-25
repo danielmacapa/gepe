@@ -46,7 +46,7 @@ class CampaignUserController extends Controller
         $campaigns = Campaign::all();
         $users = User::all();
         $campaign_user = Campaign_User::where('uuid', $uuid)->first();
-        return view('campaign_user/update', compact('campaign_users', 'campaigns', 'users'));
+        return view('campaign_user/update', compact('campaign_user', 'campaigns', 'users'));
     }
 
     public function put(Request $request)

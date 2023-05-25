@@ -76,7 +76,7 @@
                                 <tr>
                                     <td>{{ $character->name }}</td>
                                     <td>{{ $character->profession->name }}</td>
-                                    <td>{{ $character->player->name }}</td>
+                                    <td>{{ $character->user->name }}</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
                                     <td><a href="{{ route('character.show', $character->uuid) }}"><i class='fa fa-eye'
                                                 title="Detalhes"></i></a>

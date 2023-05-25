@@ -5,7 +5,7 @@
 @endsection
 
 @section('novo')
-    <a class='btn btn-primary btn-sm' href="{{ route('register') }}"><i class='fa fa-plus'></i> Cadastrar Novo
+    <a class='btn btn-primary btn-sm' href="{{ route('user.create') }}"><i class='fa fa-plus'></i> Cadastrar Novo
     </a>
 @endsection
 

@@ -26,7 +26,7 @@ class CampaignController extends Controller
     {
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
-            'name' => 'required|string|max:50|unique:campaigns,name'
+            'name' => 'required|string|max:50'
         ]);
 
         $campaign = Campaign::create([

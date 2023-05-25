@@ -19,9 +19,11 @@ return new class extends Migration
             $table->integer('agility');
             $table->integer('wits');
             $table->integer('empathy');
+            $table->integer('level');
             $table->foreignId('race_id')->constrained();
             $table->foreignId('profession_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('campaign_id')->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -63,7 +63,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($player->characters as $character)
+                            @forelse ($user->characters as $character)
                                 <tr>
                                     <td>{{ $character->name }}</td>
                                     <td>{{ $character->race->name }}</td>
