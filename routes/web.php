@@ -80,6 +80,23 @@ Route::controller(PlayerController::class)
 
 });
 
+Route::controller(UserController::class)
+->prefix('/user')->name('user.')
+->group(function(){
+    Route::get('/list', 'list' )->name('list');
+    Route::get('/show/{uuid}', 'show' )->name('show');
+
+    Route::get('create', 'create' )->name('create');
+    Route::post('store', 'store' )->name('store');
+
+    Route::get('update/{uuid}', 'update' )->name('update');
+    Route::put('put', 'put' )->name('put');
+
+    Route::get('delete/{uuid}', 'delete' )->name('delete');
+    Route::put('destroy', 'destroy' )->name('destroy');
+
+});
+
 Route::controller(CharacterController::class)
 ->prefix('/character')->name('character.')
 ->group(function(){

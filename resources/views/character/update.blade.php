@@ -23,20 +23,15 @@
                         </div>
                         <div class="form-group">
                             <label>Jogador</label>
-                            <select class="form-control" name="player_id" required>
-                                @forelse ($players as $player)
-                                    <option value="{{ $player->id }}" @if ($player->id == $character->player_id) selected @endif>
-                                        {{ $player->name }}
+                            <select class="form-control" name="user_id" required>
+                                @forelse ($users as $user)
+                                    <option value="{{ $user->id }}" @if ($user->id == $character->user_id) selected @endif>
+                                        {{ $user->name }}
                                     </option>
                                 @empty
                                 @endforelse
                             </select>
                         </div>
-
-                    </div>
-                </div>
-                <div class="col-lg-6 col-2">
-                    <div class="card-body">
                         <div class="form-group">
                             <label>Ascendência</label>
                             <select class="form-control" name="race_id" required>
@@ -70,7 +65,10 @@
                                 @endforelse
                             </select>
                         </div>
-
+                    </div>
+                </div>
+                <div class="col-lg-6 col-2">
+                    <div class="card-body">
                         <table class="table table-lg">
                             <tr>
                                 <th colspan="2">ATRIBUTOS (2 a 4, total 12)</th>

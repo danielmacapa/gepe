@@ -22,7 +22,7 @@
                         aria-expanded="false" class="nav-link dropdown-toggle">Listas</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="{{ route('character.list') }}" class="dropdown-item">Personagens </a></li>
-                        <li><a href="{{ route('player.list') }}" class="dropdown-item">Jogadores</a></li>
+                        <li><a href="{{ route('user.list') }}" class="dropdown-item">Jogadores</a></li>
                         <li><a href="{{ route('race.list') }}" class="dropdown-item">Ascendências</a></li>
                         <li><a href="{{ route('profession.list') }}" class="dropdown-item">Profissões</a></li>
                         <li><a href="{{ route('campaign.list') }}" class="dropdown-item">Campanhas</a></li>

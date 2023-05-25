@@ -56,8 +56,8 @@ class RaceController extends Controller
 
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
-            'name' => 'required|string|max:50|unique:races,name',
-            'talent_name' => 'required|string|max:50|unique:races,talent_name'
+            'name' => 'required|string|max:50',
+            'talent_name' => 'required|string|max:50'
         ]);
 
         $race->update([

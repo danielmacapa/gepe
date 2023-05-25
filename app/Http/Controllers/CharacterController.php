@@ -48,6 +48,7 @@ class CharacterController extends Controller
             'race_id' => 'required',
             'profession_id' => 'required',
             'user_id' => 'required',
+            'campaign_id' => 'required',
             'strenght' => 'required|numeric|min:2|max:4',
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
@@ -75,9 +76,9 @@ class CharacterController extends Controller
         $races = Race::all();
         $professions = Profession::all();
         $users = User::all();
-        $campaings = Campaign::all();
+        $campaigns = Campaign::all();
         $character = Character::where('uuid', $uuid)->first();
-        return view('character/update', compact('characters', 'races', 'professions', 'campaigns', 'users'));
+        return view('character/update', compact('character', 'races', 'professions', 'campaigns', 'users'));
     }
 
     public function put(Request $request)
@@ -89,6 +90,7 @@ class CharacterController extends Controller
             'name'=> 'required|string|max:50',
             'race_id' => 'required',
             'profession_id' => 'required',
+            'campaign_id' => 'required',
             'strenght' => 'required|numeric|min:2|max:4',
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',

@@ -21,7 +21,8 @@ class Character extends Model
         'empathy',
         'race_id',
         'profession_id',
-        'player_id'
+        'user_id',
+        'campaign_id'
     ];
 
     public function race():BelongsTo
@@ -32,9 +33,9 @@ class Character extends Model
     {
         return $this->belongsTo(Profession::class);
     }
-    public function player():BelongsTo
+    public function user():BelongsTo
     {
-        return $this->belongsTo(Player::class);
+        return $this->belongsTo(User::class);
     }
     public function campaign():BelongsTo
     {

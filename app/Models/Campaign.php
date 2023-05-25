@@ -18,7 +18,7 @@ class Campaign extends Model
         'name',
         'description'
     ];
-    public function characters(): HasMany
+    public function character(): HasMany
     {
         return $this->hasMany(Character::class);
     }

@@ -17,7 +17,7 @@
                             </tr>
                             <tr>
                                 <th class="table-primary">Jogador:</th>
-                                <td>{{ $character->player->name }}</td>
+                                <td>{{ $character->user->name }}</td>
                             </tr>
                             <tr>
                                 <th class="table-primary">Criado em:</th>
@@ -27,14 +27,6 @@
                                 <th class="table-primary">Atualizado em:</th>
                                 <td>{{ $character->updated_at }}</td>
                             </tr>
-                        </table>
-                    </div>
-                </div> <!-- /.card-body -->
-            </div> <!-- /.col -->
-            <div class="col-lg-6 col-2">
-                <div class="card-body">
-                    <div class="table table-lg">
-                        <table>
                             <tr>
                                 <th class="table-primary">Ascendência:</th>
                                 <td>{{ $character->race->name }}</td>
@@ -49,6 +41,10 @@
                             </tr>
                         </table>
                     </div>
+                </div> <!-- /.card-body -->
+            </div> <!-- /.col -->
+            <div class="col-lg-6 col-2">
+                <div class="card-body">
                     <table class="table table-lg">
                         <tr>
                             <th colspan="2">ATRIBUTOS</th>

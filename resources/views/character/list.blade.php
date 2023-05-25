@@ -17,14 +17,16 @@
                     <th>Nome</th>
                     <th>Ascendência</th>
                     <th>Profissão</th>
-                    <th colspan="4">Jogador</th>
+                    <th>Jogador</th>
+                    <th colspan="4">Campanha</th>
                 </tr>
                 @forelse ($characters as $character)
                     <tr>
                         <td>{{ $character->name }}</td>
                         <td>{{ $character->race->name }}</td>
                         <td>{{ $character->profession->name }}</td>
-                        <td>{{ $character->player->name }}</td>
+                        <td>{{ $character->user->name }}</td>
+                        <td>{{ $character->campaign->name }}</td>
                         <!-- As três views abaixo requerem uuid do registro, conforme rota -->
                         <td><a href="{{ route('character.show', $character->uuid) }}"><i class='fa fa-eye'
                                     title="Detalhes"></i></a></td>
@@ -35,7 +37,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan=7>Não encontramos registros.</td>
+                        <td colspan=8>Não encontramos registros.</td>
                     </tr>
                 @endforelse
             </table>
