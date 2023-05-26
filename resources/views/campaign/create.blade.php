@@ -17,8 +17,12 @@
                             <input type="text" class="form-control" name="name" placeholder="Nome" required>
                         </div>
                         <div class="form-group">
+                            <label>Resumo</label>
+                            <input type="text" class="form-control" name="name" placeholder="Breve resumo" required>
+                        </div>
+                        <div class="form-group">
                             <label>Descrição</label>
-                            <textarea class="form-control" name="description" placeholder="Descrição"></textarea>
+                            <textarea class="form-control" name="description" placeholder="Descrição de sua campanha"></textarea>
                         </div>
                     </div>
                 </div>

@@ -24,7 +24,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Nome</label>
+                                <label>Nome do Personagem</label>
                                 <input type="text" class="form-control" name="name" placeholder="Nome" required>
                             </div>
                             <div class="form-group">
@@ -46,13 +46,8 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Campanha</label>
-                                <select class="form-control" name="campaign_id" required>
-                                    @forelse ($campaigns as $campaign)
-                                        <option value="{{ $campaign->id }}">{{ $campaign->name }}</option><br>
-                                    @empty
-                                    @endforelse
-                                </select>
+                                <label>Convite</label>
+                                <input type="text" class="form-control" name="uuid" placeholder="Código do convite">
                             </div>
                         </div>
                     </div>

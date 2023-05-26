@@ -21,6 +21,11 @@
                                 required>
                         </div>
                         <div class="form-group">
+                            <label>Resumo</label>
+                            <input type="text" class="form-control" name="resume" value="{{ $campaign->name }}"
+                                required>
+                        </div>
+                        <div class="form-group">
                             <label>Descrição</label>
                             <textarea class="form-control" name="description">{{ $campaign->description }}</textarea>
                         </div>

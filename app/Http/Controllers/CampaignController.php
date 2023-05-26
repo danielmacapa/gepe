@@ -26,12 +26,15 @@ class CampaignController extends Controller
     {
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
-            'name' => 'required|string|max:50'
+            'name' => 'required|string|max:50',
+            'resume' => 'string|max:50',
+            'description' => 'string|max:200'
         ]);
 
         $campaign = Campaign::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
+            'resume' => $request->resume,
             'description' => $request->description
         ]);
 
@@ -50,11 +53,15 @@ class CampaignController extends Controller
 
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
-            'name' => 'required'
+            'name' => 'required',
+            'resume' => 'string|max:50',
+            'description' => 'string|max:200'
+
         ]);
 
         $campaign->update([
             'name' => $request->name,
+            'resume' => $request->resume,
             'description' => $request->description
         ]);
 

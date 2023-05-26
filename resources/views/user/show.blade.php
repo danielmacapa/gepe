@@ -11,19 +11,16 @@
                 <table>
                     <tr>
                         <th class="table-primary">Nome:</th>
-                        <th>{{ $user->name }}</th>
+                        <td>{{ $user->name }}</td>
                     </tr>
                     <th class="table-primary">E-mail:</th>
                     <td>{{ $user->email }}</td>
                     </tr>
                     <tr>
-                        <th class="table-primary">Cadastrado(a) em:</th>
-                        <td>{{ $user->created_at }}</td>
+                        <th class="table-primary">Cargo:</th>
+                        <td>Cargo</td>
                     </tr>
-                    <tr>
-                        <th class="table-primary">Atualizado(a) em:</th>
-                        <td>{{ $user->updated_at }}</td>
-                    </tr>
+
                 </table>
                 <br>
                 <a class='btn btn-primary btn-sm' href="{{ route('user.list') }}"><i class="fas fa-arrow-circle-left">

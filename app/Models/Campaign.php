@@ -16,13 +16,14 @@ class Campaign extends Model
     protected $fillable = [
         'uuid',
         'name',
+        'resume',
         'description'
     ];
-    public function character(): HasMany
+    public function characters(): HasMany
     {
         return $this->hasMany(Character::class);
     }
-    public function campaign_user(): HasMany
+    public function users(): HasMany
     {
         return $this->hasMany(Campaign_User::class);
     }

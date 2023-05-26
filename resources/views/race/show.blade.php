@@ -25,14 +25,6 @@
                         <th class="table-primary">Descrição do Talento:</th>
                         <td>{{ $race->talent_description }}</td>
                     </tr>
-                    <tr>
-                        <th class="table-primary">Criada em:</th>
-                        <td>{{ $race->created_at }}</td>
-                    </tr>
-                    <tr>
-                        <th class="table-primary">Atualizada em:</th>
-                        <td>{{ $race->updated_at }}</td>
-                    </tr>
                 </table>
                 <br>
                 <a class='btn btn-primary btn-sm' href="{{ route('race.list') }}"><i class="fas fa-arrow-circle-left">

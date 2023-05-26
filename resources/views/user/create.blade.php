@@ -27,6 +27,10 @@
                         <label>Senha</label>
                         <input type="password" class="form-control" name="password" placeholder="8 dígitos" required>
                     </div>
+                    <div class="form-group">
+                        <label>Cargo</label>
+                        <input type="text" class="form-control" name="#" placeholder="Cargo">
+                    </div>
                 </div>
             </div>
             <div class="card-footer">

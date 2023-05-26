@@ -52,3 +52,14 @@ a {
     background-color: var(--primary-color);
     color: #1f2d3d;
 }
+tbody {
+    background-color: #222;
+    color: var(--tertiary-color);
+}
+thead {
+    background-color: var(--secundary-color);
+    color: var(--tertiary-color);
+}
+.table-primary {
+    background-color: var(--secundary-color) !important;
+}

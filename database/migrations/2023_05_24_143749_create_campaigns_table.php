@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->uuid();
             $table->string('name');
+            $table->longText('resume')->nullable();
             $table->longText('description')->nullable();
             $table->timestamps();
             $table->softDeletes();

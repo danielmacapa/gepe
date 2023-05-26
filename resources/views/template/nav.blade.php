@@ -17,9 +17,15 @@
                 <li class="nav-item">
                     <a href="{{ route('character.list') }}" class="nav-link">Início</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('character.list') }}" class="nav-link">Meus Personagens</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('campaign.list') }}" class="nav-link">Minhas Campanhas</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false" class="nav-link dropdown-toggle">Listas</a>
+                        aria-expanded="false" class="nav-link dropdown-toggle">Admin</a>
                     <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
                         <li><a href="{{ route('character.list') }}" class="dropdown-item">Personagens </a></li>
                         <li><a href="{{ route('user.list') }}" class="dropdown-item">Jogadores</a></li>

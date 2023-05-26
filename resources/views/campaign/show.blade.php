@@ -7,29 +7,29 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            <div class="table table-lg">
-                <table>
-                    <tr>
-                        <th class="table-primary">Nome:</th>
-                        <th>{{ $campaign->name }}</th>
-                    </tr>
-                    <tr>
-                        <th class="table-primary">Descrição:</th>
-                        <td>{{ $campaign->description }}</td>
-                    </tr>
-                    <tr>
-                        <th class="table-primary">Criada em:</th>
-                        <td>{{ $campaign->created_at }}</td>
-                    </tr>
-                    <tr>
-                        <th class="table-primary">Atualizada em:</th>
-                        <td>{{ $campaign->updated_at }}</td>
-                    </tr>
-                </table>
-                <br>
-                <a class='btn btn-primary btn-sm' href="{{ route('campaign.list') }}"><i class="fas fa-arrow-circle-left">
-                    </i> Voltar</a>
+            <div class="row">
+                <div class="table table-lg">
+                    <table>
+                        <tr>
+                            <th class="table-primary">Nome:</th>
+                            <th>{{ $campaign->name }}</th>
+                        </tr>
+                        <tr>
+                            <th class="table-primary">Resumo:</th>
+                            <td>{{ $campaign->resume }}</td>
+                        </tr>
+                        <tr>
+                            <th class="table-primary">Descrição:</th>
+                            <td>{{ $campaign->description }}</td>
+                        </tr>
+                        {{-- A linha abaixo é visível apenas para usuários com cargo de Mestre --}}
+                        <tr>
+                            <th class="table-primary">Convite:</th>
+                            <td>{{ $campaign->uuid }}</td>
+                        </tr>
 
+                    </table>
+                </div>
             </div>
         </div>
         <!-- /.card-body -->
@@ -42,14 +42,16 @@
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
-                            <input type="text" name="table_search" class="form-control float-right"
-                                placeholder="Pesquisar">
-
-                            <div class="input-group-append">
+                            {{-- <input type="text" name="table_search" class="form-control float-right"
+                                placeholder="Pesquisar"> --}}
+                            {{-- <div class="input-group-append">
                                 <button type="submit" class="btn btn-default">
                                     <i class="fas fa-search"></i>
                                 </button>
-                            </div>
+                            </div> --}}
+                            <a class='btn btn-primary btn-sm' href="{{ route('campaign_user.create') }}"><i
+                                    class='fa fa-plus'></i> Incluir
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -59,6 +61,7 @@
                         <thead>
                             <tr>
                                 <th>Nome</th>
+                                <th>Ascendência</th>
                                 <th>Profissão</th>
                                 <th colspan="4">Jogador</th>
                             </tr>
@@ -67,6 +70,7 @@
                             @forelse ($campaign->characters as $character)
                                 <tr>
                                     <td>{{ $character->name }}</td>
+                                    <td>{{ $character->race->name }}</td>
                                     <td>{{ $character->profession->name }}</td>
                                     <td>{{ $character->user->name }}</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
@@ -86,7 +90,7 @@
                                 </tr>
                             @endforelse
                         </tbody>
-                    </table>
+                    </table><br>
                     <p><a class='btn btn-primary btn-sm' href="{{ route('campaign.list') }}"><i
                                 class="fas fa-arrow-circle-left">
                             </i> Voltar</a></p>

@@ -23,17 +23,8 @@
                                 <th class="table-primary">Nível:</th>
                                 <td>{{ $character->level }}</td>
                             </tr>
-                            <tr>
-                                <th class="table-primary">Criado em:</th>
-                                <td>{{ $character->created_at }}</td>
-                            </tr>
-                            <tr>
-                                <th class="table-primary">Atualizado em:</th>
-                                <td>{{ $character->updated_at }}</td>
-                            </tr>
-                            <tr>
-                                <th class="table-primary">Ascendência:</th>
-                                <td>{{ $character->race->name }}</td>
+                            <th class="table-primary">Ascendência:</th>
+                            <td>{{ $character->race->name }}</td>
                             </tr>
                             <tr>
                                 <th class="table-primary">Profissão:</th>
