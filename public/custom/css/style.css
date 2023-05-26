@@ -48,6 +48,10 @@ a {
     text-decoration-color: initial;
     background-color: transparent;
 }
+.navbar-nav{
+    color: #e8e6e3;
+    font-weight: bold;
+}
 .navbar-white {
     background-color: var(--primary-color);
     color: #1f2d3d;

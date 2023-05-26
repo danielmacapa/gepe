@@ -4,6 +4,27 @@
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Detalhes da Campanha</h3>
+            <div class="card-tools">
+                <div class="input-group input-group-sm" style="width: 150px;">
+                    <table>
+                        <tr>
+                            <td><a class='btn btn-primary btn-sm' href="{{ route('campaign.update', $campaign->uuid) }}"><i
+                                        class='fa fa-edit' title="Editar"></i></a></td>
+                            <td>
+                                <a class='btn btn-primary btn-sm' href="{{ route('campaign.delete', $campaign->uuid) }}"><i
+                                        class='fa fa-trash' title="Excluir"></i></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            {{-- <div class="card-tools" class="float-right">
+                <a href="{{ route('campaign.update', $campaign->uuid) }}"><i class='fa fa-edit' title="Editar"></i></a>
+
+                <a href="{{ route('campaign.delete', $campaign->uuid) }}"><i class='fa fa-trash' title="Excluir"></i></a>
+            </div> --}}
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -42,13 +63,6 @@
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
-                            {{-- <input type="text" name="table_search" class="form-control float-right"
-                                placeholder="Pesquisar"> --}}
-                            {{-- <div class="input-group-append">
-                                <button type="submit" class="btn btn-default">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </div> --}}
                             <a class='btn btn-primary btn-sm' href="{{ route('campaign_user.create') }}"><i
                                     class='fa fa-plus'></i> Incluir
                             </a>

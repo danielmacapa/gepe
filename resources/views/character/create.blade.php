@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-lg-6 col-2">
                         <div class="card-body">
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label>Jogador</label>
                                 <select class="form-control" name="user_id" required>
                                     @forelse ($users as $user)
@@ -22,7 +22,7 @@
                                     @empty
                                     @endforelse
                                 </select>
-                            </div>
+                            </div> --}}
                             <div class="form-group">
                                 <label>Nome do Personagem</label>
                                 <input type="text" class="form-control" name="name" placeholder="Nome" required>
@@ -46,8 +46,13 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Convite</label>
-                                <input type="text" class="form-control" name="uuid" placeholder="Código do convite">
+                                <label>Campanha</label>
+                                <select class="form-control" name="campaign_id" required>
+                                    @forelse ($campaigns as $campaign)
+                                        <option value="{{ $campaign->id }}">{{ $campaign->name }}</option><br>
+                                    @empty
+                                    @endforelse
+                                </select>
                             </div>
                         </div>
                     </div>

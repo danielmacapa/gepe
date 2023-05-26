@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label>Resumo</label>
-                            <input type="text" class="form-control" name="resume" value="{{ $campaign->name }}"
+                            <input type="text" class="form-control" name="resume" value="{{ $campaign->resume }}"
                                 required>
                         </div>
                         <div class="form-group">
