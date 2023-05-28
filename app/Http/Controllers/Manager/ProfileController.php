@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manager;
+use App\Http\Controllers\Controller;
 
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
@@ -18,6 +19,13 @@ class ProfileController extends Controller
     {
         return view('home');
     }
+    public function dashboard(): View
+    {
+        $characters = auth()->user()->characters;
+        return view('dashboard', compact('characters'));
+
+    }
+
     public function edit(Request $request): View
     {
         return view('profile.edit', [

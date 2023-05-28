@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form class="form" method="post" action="{{ route('campaign.store') }}">
+        <form class="form" method="post" action="{{ route('manager.campaign.store') }}">
             @csrf
             <div class="row">
                 <div class="col-lg-6 col-2">

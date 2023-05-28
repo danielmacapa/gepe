@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Str;
@@ -39,7 +40,7 @@ class UserController extends Controller
 
         ]);
 
-        return redirect()->route('user.list')->with('success', 'Usuário cadastrado com sucesso!');
+        return redirect()->route('admin.user.list')->with('success', 'Usuário cadastrado com sucesso!');
     }
 
     public function update($uuid)
@@ -64,7 +65,7 @@ class UserController extends Controller
             'password'=>$request->password
         ]);
 
-        return redirect()->route('user.list')->with('success', 'Usuário atualizado com sucesso!');
+        return redirect()->route('admin.user.list')->with('success', 'Usuário atualizado com sucesso!');
     }
 
     public function delete($uuid)
@@ -78,7 +79,7 @@ class UserController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $user = User::where('uuid', $request->uuid)->first();
         $user->delete();
-        return redirect()->route('user.list')->with('success', 'Usuário removido com sucesso!');
+        return redirect()->route('admin.user.list')->with('success', 'Usuário removido com sucesso!');
     }
 
 }

@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form class="form" method="post" action="{{ route('character.put') }}">
+        <form class="form" method="post" action="{{ route('manager.character.put') }}">
             @csrf
             <!-- expira sessão-->
             @method('PUT')
@@ -54,7 +54,7 @@
                                 @endforelse
                             </select>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label>Campanha</label>
                             <select class="form-control" name="campaign_id" required>
                                 @forelse ($campaigns as $campaign)
@@ -64,7 +64,7 @@
                                 @empty
                                 @endforelse
                             </select>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 <div class="col-lg-6 col-2">
@@ -75,8 +75,8 @@
                             </tr>
                             <tr>
                                 <th>Força</th>
-                                <td> <input type="number" name="strenght" value="{{ $character->strenght }}"
-                                        min="2" max="4" required><br>
+                                <td> <input type="number" name="strenght" value="{{ $character->strenght }}" min="2"
+                                        max="4" required><br>
                                     </select>
                                 </td>
                             </tr>
@@ -107,7 +107,8 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a class='btn btn-secundary' href="{{ route('character.list') }}"><i class="fas fa-arrow-circle-left">
+                <a class='btn btn-secundary' href="{{ route('manager.character.list') }}"><i
+                        class="fas fa-arrow-circle-left">
                     </i> Voltar</a>
                 <input type="hidden" name="action" value="Enviar">
                 <button type="submit" class="btn btn-primary">Atualizar</button>

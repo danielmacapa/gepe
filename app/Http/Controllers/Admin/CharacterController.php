@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\Race;
@@ -15,7 +16,8 @@ class CharacterController extends Controller
     //
     public function list()
     {
-        $characters = Character::all();
+        // $characters = Character::all();
+        $characters = auth()->user()->characters;
         return view('character/list', compact('characters'));
     }
     public function show($uuid)
@@ -65,7 +67,7 @@ class CharacterController extends Controller
             'empathy' => $request->empathy,
             'level' => "1"
         ]);
-        return redirect()->route('character.list')->with('success', 'Personagem criado com sucesso!');
+        return redirect()->route('admin.character.list')->with('success', 'Personagem criado com sucesso!');
     }
 
     public function update($uuid)
@@ -103,7 +105,7 @@ class CharacterController extends Controller
             'wits' => $request->wits,
             'empathy' => $request->empathy
         ]);
-        return redirect()->route('character.list')->with('success', 'Personagem atualizado com sucesso!');
+        return redirect()->route('admin.character.list')->with('success', 'Personagem atualizado com sucesso!');
 
     }
 
@@ -118,7 +120,7 @@ class CharacterController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $character = Character::where('uuid', $request->uuid)->first();
         $character->delete();
-        return redirect()->route('character.list')->with('success', 'Personagem removido com sucesso!');
+        return redirect()->route('admin.character.list')->with('success', 'Personagem removido com sucesso!');
         ;
     }
 }

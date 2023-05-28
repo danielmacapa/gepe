@@ -1,7 +1,7 @@
 @extends('template.master')
 
 @section('novo')
-    <a class='btn btn-primary btn-sm' href="{{ route('user.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
+    <a class='btn btn-primary btn-sm' href="{{ route('admin.user.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
     </a>
 @endsection
 
@@ -39,13 +39,13 @@
                                     <td>{{ $user->email }}</td>
                                     <td>Cargo</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
-                                    <td><a href="{{ route('user.show', $user->uuid) }}"><i class='fa fa-eye'
+                                    <td><a href="{{ route('admin.user.show', $user->uuid) }}"><i class='fa fa-eye'
                                                 title="Detalhes"></i></a>
                                     </td>
-                                    <td><a href="{{ route('user.update', $user->uuid) }}"><i class='fa fa-edit'
+                                    <td><a href="{{ route('admin.user.update', $user->uuid) }}"><i class='fa fa-edit'
                                                 title="Editar"></i></a>
                                     </td>
-                                    <td><a href="{{ route('user.delete', $user->uuid) }}"><i class='fa fa-trash'
+                                    <td><a href="{{ route('admin.user.delete', $user->uuid) }}"><i class='fa fa-trash'
                                                 title="Excluir"></i></a>
                                     </td>
 

@@ -67,7 +67,8 @@
             </div> <!-- /.col -->
         </div> <!-- /.row -->
         <div>
-            <a class='btn btn-primary btn-sm' href="{{ route('character.list') }}"><i class="fas fa-arrow-circle-left">
+            <a class='btn btn-primary btn-sm' href="{{ route('manager.character.list') }}"><i
+                    class="fas fa-arrow-circle-left">
                 </i> Voltar</a>
         </div>
 

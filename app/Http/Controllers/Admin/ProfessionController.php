@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\Profession;
@@ -40,7 +41,7 @@ class ProfessionController extends Controller
             'equipment' => $request->equipment
 
         ]);
-        return redirect()->route('profession.list')->with('success', 'Profissão cadastrada com sucesso!');
+        return redirect()->route('admin.profession.list')->with('success', 'Profissão cadastrada com sucesso!');
     }
 
     public function update($uuid)
@@ -67,7 +68,7 @@ class ProfessionController extends Controller
             'equipment' => $request->equipment
 
         ]);
-        return redirect()->route('profession.list')->with('success', 'Profissão atualizada com sucesso!');
+        return redirect()->route('admin.profession.list')->with('success', 'Profissão atualizada com sucesso!');
     }
 
     public function delete($uuid)
@@ -81,7 +82,7 @@ class ProfessionController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $profession = Profession::where('uuid', $request->uuid)->first();
         $profession->delete();
-        return redirect()->route('profession.list')->with('success', 'Profissão removida com sucesso!');
+        return redirect()->route('admin.profession.list')->with('success', 'Profissão removida com sucesso!');
     }
 
 }

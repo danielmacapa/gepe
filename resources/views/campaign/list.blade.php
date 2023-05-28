@@ -1,7 +1,7 @@
 @extends('template.master')
 
 @section('novo')
-    <a class='btn btn-primary btn-sm' href="{{ route('campaign.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
+    <a class='btn btn-primary btn-sm' href="{{ route('manager.campaign.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
     </a>
 @endsection
 
@@ -37,14 +37,14 @@
                                     <td>{{ $campaign->name }}</td>
                                     <td>{{ $campaign->resume }}</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
-                                    <td><a href="{{ route('campaign.show', $campaign->uuid) }}"><i class='fa fa-eye'
+                                    <td><a href="{{ route('manager.campaign.show', $campaign->uuid) }}"><i class='fa fa-eye'
                                                 title="Detalhes"></i></a>
                                     </td>
-                                    <td><a href="{{ route('campaign.update', $campaign->uuid) }}"><i class='fa fa-edit'
-                                                title="Editar"></i></a>
+                                    <td><a href="{{ route('manager.campaign.update', $campaign->uuid) }}"><i
+                                                class='fa fa-edit' title="Editar"></i></a>
                                     </td>
-                                    <td><a href="{{ route('campaign.delete', $campaign->uuid) }}"><i class='fa fa-trash'
-                                                title="Excluir"></i></a>
+                                    <td><a href="{{ route('manager.campaign.delete', $campaign->uuid) }}"><i
+                                                class='fa fa-trash' title="Excluir"></i></a>
                                     </td>
 
                                 </tr>

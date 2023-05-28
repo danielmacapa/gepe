@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('campaigns', function (Blueprint $table) {
-            $table->longText('resume')->nullable();
+        Schema::table('characters', function (Blueprint $table) {
+            $table->foreignId('campaign_id')->nullable()->constrained();
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('campaigns', function (Blueprint $table) {
-            $table->longText('resume')->nullable();
+        Schema::table('characters', function (Blueprint $table) {
+            $table->dropColumn('campaign_id');
         });
     }
 };

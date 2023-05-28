@@ -1,7 +1,7 @@
 @extends('template.master')
 
 @section('novo')
-    <a class='btn btn-primary btn-sm' href="{{ route('profession.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
+    <a class='btn btn-primary btn-sm' href="{{ route('admin.profession.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
     </a>
 @endsection
 
@@ -39,14 +39,14 @@
                                     <td>{{ $profession->talent_name }}</td>
                                     <td>{{ $profession->equipment }}</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
-                                    <td><a href="{{ route('profession.show', $profession->uuid) }}"><i class='fa fa-eye'
-                                                title="Detalhes"></i></a>
+                                    <td><a href="{{ route('admin.profession.show', $profession->uuid) }}"><i
+                                                class='fa fa-eye' title="Detalhes"></i></a>
                                     </td>
-                                    <td><a href="{{ route('profession.update', $profession->uuid) }}"><i class='fa fa-edit'
-                                                title="Editar"></i></a>
+                                    <td><a href="{{ route('admin.profession.update', $profession->uuid) }}"><i
+                                                class='fa fa-edit' title="Editar"></i></a>
                                     </td>
-                                    <td><a href="{{ route('profession.delete', $profession->uuid) }}"><i class='fa fa-trash'
-                                                title="Excluir"></i></a>
+                                    <td><a href="{{ route('admin.profession.delete', $profession->uuid) }}"><i
+                                                class='fa fa-trash' title="Excluir"></i></a>
                                     </td>
 
                                 </tr>

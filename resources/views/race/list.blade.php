@@ -1,7 +1,7 @@
 @extends('template.master')
 
 @section('novo')
-    <a class='btn btn-primary btn-sm' href="{{ route('race.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
+    <a class='btn btn-primary btn-sm' href="{{ route('admin.race.create') }}"><i class='fa fa-plus'></i> Cadastrar Nova
     </a>
 @endsection
 
@@ -39,13 +39,13 @@
                                     <td>{{ $race->talent_name }}</td>
                                     <td>{{ $race->talent_description }}</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
-                                    <td><a href="{{ route('race.show', $race->uuid) }}"><i class='fa fa-eye'
+                                    <td><a href="{{ route('admin.race.show', $race->uuid) }}"><i class='fa fa-eye'
                                                 title="Detalhes"></i></a>
                                     </td>
-                                    <td><a href="{{ route('race.update', $race->uuid) }}"><i class='fa fa-edit'
+                                    <td><a href="{{ route('admin.race.update', $race->uuid) }}"><i class='fa fa-edit'
                                                 title="Editar"></i></a>
                                     </td>
-                                    <td><a href="{{ route('race.delete', $race->uuid) }}"><i class='fa fa-trash'
+                                    <td><a href="{{ route('admin.race.delete', $race->uuid) }}"><i class='fa fa-trash'
                                                 title="Excluir"></i></a>
                                     </td>
 

@@ -15,7 +15,7 @@
     </div>
 
     <!-- formulário de exclusão -->
-    <form method="POST" action="{{ route('race.destroy') }}">
+    <form method="POST" action="{{ route('admin.race.destroy') }}">
         @csrf
         <!-- expira sessão-->
         @method('PUT')
@@ -24,6 +24,6 @@
         <button type="submit" class="btn btn-danger">Confirmar exclusão </button>
     </form>
     @endif
-    <a class='btn btn-secundary' href="{{ route('race.list') }}"><i class="fas fa-arrow-circle-left">
+    <a class='btn btn-secundary' href="{{ route('admin.race.list') }}"><i class="fas fa-arrow-circle-left">
         </i> Voltar</a>
 @endsection

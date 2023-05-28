@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Models\Race;
@@ -41,7 +42,7 @@ class RaceController extends Controller
 
         ]);
 
-        return redirect()->route('race.list')->with('success', 'Ascendência cadastrada com sucesso!');
+        return redirect()->route('admin.race.list')->with('success', 'Ascendência cadastrada com sucesso!');
     }
 
     public function update($uuid)
@@ -67,7 +68,7 @@ class RaceController extends Controller
             'talent_description' => $request->talent_description
         ]);
 
-        return redirect()->route('race.list')->with('success', 'Ascendência atualizada com sucesso!');
+        return redirect()->route('admin.race.list')->with('success', 'Ascendência atualizada com sucesso!');
     }
 
     public function delete($uuid)
@@ -81,7 +82,7 @@ class RaceController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $race = Race::where('uuid', $request->uuid)->first();
         $race->delete();
-        return redirect()->route('race.list')->with('success', 'Ascendência removida com sucesso!');
+        return redirect()->route('admin.race.list')->with('success', 'Ascendência removida com sucesso!');
 
     }
 

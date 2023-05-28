@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form class="form" method="post" action="{{ route('profession.put') }}">
+        <form class="form" method="post" action="{{ route('admin.profession.put') }}">
             @csrf
             <!-- expira sessão-->
             @method('PUT')
@@ -47,7 +47,8 @@
                 </div>
             </div>
             <div class="card-footer">
-                <a class='btn btn-secundary' href="{{ route('profession.list') }}"><i class="fas fa-arrow-circle-left">
+                <a class='btn btn-secundary' href="{{ route('admin.profession.list') }}"><i
+                        class="fas fa-arrow-circle-left">
                     </i> Voltar</a>
                 <input type="hidden" name="action" value="Enviar">
                 <button type="submit" class="btn btn-primary">Atualizar</button>

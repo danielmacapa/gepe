@@ -7,7 +7,7 @@
         </div>
         <!-- /.card-header -->
         <!-- form start -->
-        <form class="form" method="post" action="{{ route('race.store') }}">
+        <form class="form" method="post" action="{{ route('admin.race.store') }}">
             @csrf
             <div class="row">
                 <div class="col-lg-6 col-2">
@@ -40,7 +40,7 @@
                 <button type="reset" name="Limpar" class="btn btn-light">Limpar</button>
                 <input type="hidden" name="action" value="Enviar">
                 <button type="submit" class="btn btn-primary">Cadastrar</button><br>
-                <a class='btn btn-secundary' href="{{ route('race.list') }}"><i class="fas fa-arrow-circle-left">
+                <a class='btn btn-secundary' href="{{ route('admin.race.list') }}"><i class="fas fa-arrow-circle-left">
                     </i> Voltar</a>
             </div>
         </form>

@@ -6,13 +6,15 @@
             <h3 class="card-title">Detalhes da Campanha</h3>
             <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
-                    <table>
+                    <table class="table1">
                         <tr>
-                            <td><a class='btn btn-primary btn-sm' href="{{ route('campaign.update', $campaign->uuid) }}"><i
-                                        class='fa fa-edit' title="Editar"></i></a></td>
+                            <td><a class='btn btn-primary btn-sm'
+                                    href="{{ route('manager.campaign.update', $campaign->uuid) }}"><i class='fa fa-edit'
+                                        title="Editar"></i></a></td>
                             <td>
-                                <a class='btn btn-primary btn-sm' href="{{ route('campaign.delete', $campaign->uuid) }}"><i
-                                        class='fa fa-trash' title="Excluir"></i></a>
+                                <a class='btn btn-primary btn-sm'
+                                    href="{{ route('manager.campaign.delete', $campaign->uuid) }}"><i class='fa fa-trash'
+                                        title="Excluir"></i></a>
                             </td>
                         </tr>
                     </table>
@@ -63,8 +65,7 @@
 
                     <div class="card-tools">
                         <div class="input-group input-group-sm" style="width: 150px;">
-                            <a class='btn btn-primary btn-sm' href="{{ route('campaign_user.create') }}"><i
-                                    class='fa fa-plus'></i> Incluir
+                            <a class='btn btn-primary btn-sm' href="#"><i class='fa fa-plus'></i> Incluir
                             </a>
                         </div>
                     </div>
@@ -88,14 +89,14 @@
                                     <td>{{ $character->profession->name }}</td>
                                     <td>{{ $character->user->name }}</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
-                                    <td><a href="{{ route('character.show', $character->uuid) }}"><i class='fa fa-eye'
-                                                title="Detalhes"></i></a>
+                                    <td><a href="{{ route('manager.character.show', $character->uuid) }}"><i
+                                                class='fa fa-eye' title="Detalhes"></i></a>
                                     </td>
-                                    <td><a href="{{ route('character.update', $character->uuid) }}"><i class='fa fa-edit'
-                                                title="Editar"></i></a>
+                                    <td><a href="{{ route('manager.character.update', $character->uuid) }}"><i
+                                                class='fa fa-edit' title="Editar"></i></a>
                                     </td>
-                                    <td><a href="{{ route('character.delete', $character->uuid) }}"><i class='fa fa-trash'
-                                                title="Excluir"></i></a>
+                                    <td><a href="{{ route('manager.character.delete', $character->uuid) }}"><i
+                                                class='fa fa-trash' title="Excluir"></i></a>
                                     </td>
                                 </tr>
                             @empty
@@ -105,7 +106,7 @@
                             @endforelse
                         </tbody>
                     </table><br>
-                    <p><a class='btn btn-primary btn-sm' href="{{ route('campaign.list') }}"><i
+                    <p><a class='btn btn-primary btn-sm' href="{{ route('manager.campaign.list') }}"><i
                                 class="fas fa-arrow-circle-left">
                             </i> Voltar</a></p>
                 </div>

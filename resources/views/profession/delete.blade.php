@@ -15,7 +15,7 @@
     </div>
 
     <!-- formulário de exclusão -->
-    <form method="POST" action="{{ route('profession.destroy') }}">
+    <form method="POST" action="{{ route('admin.profession.destroy') }}">
         @csrf
         <!-- expira sessão-->
         @method('PUT')
@@ -24,6 +24,6 @@
         <button type="submit" class="btn btn-danger">Confirmar exclusão </button>
     </form>
     @endif
-    <a class='btn btn-secundary' href="{{ route('profession.list') }}"><i class="fas fa-arrow-circle-left">
+    <a class='btn btn-secundary' href="{{ route('admin.profession.list') }}"><i class="fas fa-arrow-circle-left">
         </i> Voltar</a>
 @endsection

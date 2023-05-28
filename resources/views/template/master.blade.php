@@ -18,7 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/css/adminlte.css') }}">
     <!-- Tema customizado -->
-    <link rel="stylesheet" href="{{ asset('custom/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('custom/css/style1.css') }}">
 </head>
 
 <body class="layout-top-nav">

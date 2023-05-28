@@ -23,7 +23,7 @@
 
                 </table>
                 <br>
-                <a class='btn btn-primary btn-sm' href="{{ route('user.list') }}"><i class="fas fa-arrow-circle-left">
+                <a class='btn btn-primary btn-sm' href="{{ route('admin.user.list') }}"><i class="fas fa-arrow-circle-left">
                     </i> Voltar</a>
 
             </div>
@@ -66,14 +66,14 @@
                                     <td>{{ $character->race->name }}</td>
                                     <td>{{ $character->profession->name }}</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
-                                    <td><a href="{{ route('character.show', $character->uuid) }}"><i class='fa fa-eye'
+                                    <td><a href="{{ route('admin.character.show', $character->uuid) }}"><i class='fa fa-eye'
                                                 title="Detalhes"></i></a>
                                     </td>
-                                    <td><a href="{{ route('character.update', $character->uuid) }}"><i class='fa fa-edit'
-                                                title="Editar"></i></a>
+                                    <td><a href="{{ route('admin.character.update', $character->uuid) }}"><i
+                                                class='fa fa-edit' title="Editar"></i></a>
                                     </td>
-                                    <td><a href="{{ route('character.delete', $character->uuid) }}"><i class='fa fa-trash'
-                                                title="Excluir"></i></a>
+                                    <td><a href="{{ route('admin.character.delete', $character->uuid) }}"><i
+                                                class='fa fa-trash' title="Excluir"></i></a>
                                     </td>
 
                                 </tr>
@@ -84,7 +84,7 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <p><a class='btn btn-primary btn-sm' href="{{ route('user.list') }}"><i
+                    <p><a class='btn btn-primary btn-sm' href="{{ route('admin.user.list') }}"><i
                                 class="fas fa-arrow-circle-left">
                             </i> Voltar</a></p>
                 </div>

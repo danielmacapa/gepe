@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manager;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Campaign;
 use Illuminate\Support\Str;
@@ -10,7 +11,8 @@ class CampaignController extends Controller
 {
     public function list()
     {
-        $campaigns = Campaign::all();
+        // $campaigns = Campaign::all();
+        $campaigns = auth()->user()->campaigns;
         return view('campaign/list', compact('campaigns'));
     }
     public function show($uuid)
@@ -33,12 +35,13 @@ class CampaignController extends Controller
 
         $campaign = Campaign::create([
             'uuid' => Str::uuid(),
+            'user_id' => auth()->user()->id,
             'name' => $request->name,
             'resume' => $request->resume,
             'description' => $request->description
         ]);
 
-        return redirect()->route('campaign.list')->with('success', 'Campanha cadastrada com sucesso!');
+        return redirect()->route('manager.campaign.list')->with('success', 'Campanha cadastrada com sucesso!');
     }
 
     public function update($uuid)
@@ -65,7 +68,7 @@ class CampaignController extends Controller
             'description' => $request->description
         ]);
 
-        return redirect()->route('campaign.list')->with('success', 'Campanha atualizada com sucesso!');
+        return redirect()->route('manager.campaign.list')->with('success', 'Campanha atualizada com sucesso!');
     }
 
     public function delete($uuid)
@@ -79,7 +82,7 @@ class CampaignController extends Controller
         //utiliza-se a função first porque $request virá em forma de array
         $campaign = Campaign::where('uuid', $request->uuid)->first();
         $campaign->delete();
-        return redirect()->route('campaign.list')->with('success', 'Campanha removida com sucesso!');
+        return redirect()->route('manager.campaign.list')->with('success', 'Campanha removida com sucesso!');
 
     }
 

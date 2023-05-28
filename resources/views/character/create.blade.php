@@ -9,7 +9,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form class="form" method="post" action="{{ route('character.store') }}">
+            <form class="form" method="post" action="{{ route('manager.character.store') }}">
                 @csrf
                 <div class="row">
                     <div class="col-lg-6 col-2">
@@ -25,13 +25,16 @@
                             </div> --}}
                             <div class="form-group">
                                 <label>Nome do Personagem</label>
-                                <input type="text" class="form-control" name="name" placeholder="Nome" required>
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}"
+                                    placeholder="Nome" required>
                             </div>
                             <div class="form-group">
                                 <label>Ascendência</label>
                                 <select class="form-control" name="race_id" required>
+                                    <option value="">Selecione</option>
                                     @forelse ($races as $race)
-                                        <option value="{{ $race->id }}">{{ $race->name }}</option><br>
+                                        <option @if ($race->id == old('race_id')) selected @endif
+                                            value="{{ $race->id }}">{{ $race->name }}</option><br>
                                     @empty
                                     @endforelse
                                 </select>
@@ -39,20 +42,18 @@
                             <div class="form-group">
                                 <label>Profissão</label>
                                 <select class="form-control" name="profession_id" required>
+                                    <option value="">Selecione</option>
                                     @forelse ($professions as $profession)
-                                        <option value="{{ $profession->id }}">{{ $profession->name }}</option><br>
+                                        <option @if ($profession->id == old('profession_id')) selected @endif
+                                            value="{{ $profession->id }}">{{ $profession->name }}</option><br>
                                     @empty
                                     @endforelse
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Campanha</label>
-                                <select class="form-control" name="campaign_id" required>
-                                    @forelse ($campaigns as $campaign)
-                                        <option value="{{ $campaign->id }}">{{ $campaign->name }}</option><br>
-                                    @empty
-                                    @endforelse
-                                </select>
+                                <label>Convite para Campanha</label>
+                                <input type="text" class="form-control" name="campaign_uuid"
+                                    value="{{ old('campaign_uuid') }}" placeholder="Opcional">
                             </div>
                         </div>
                     </div>
@@ -100,7 +101,8 @@
                     <button type="reset" name="Limpar" class="btn btn-light">Limpar</button>
                     <input type="hidden" name="action" value="Enviar">
                     <button type="submit" class="btn btn-primary">Cadastrar</button><br>
-                    <a class='btn btn-secundary' href="{{ route('profession.list') }}"><i class="fas fa-arrow-circle-left">
+                    <a class='btn btn-secundary' href="{{ route('manager.character.list') }}"><i
+                            class="fas fa-arrow-circle-left">
                         </i> Voltar</a>
                 </div>
             </form>
