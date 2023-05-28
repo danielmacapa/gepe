@@ -11,8 +11,7 @@ class CampaignController extends Controller
 {
     public function list()
     {
-        // $campaigns = Campaign::all();
-        $campaigns = auth()->user()->campaigns;
+        $campaigns = Campaign::all();
         return view('campaign/list', compact('campaigns'));
     }
     public function show($uuid)

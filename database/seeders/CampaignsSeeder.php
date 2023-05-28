@@ -20,7 +20,15 @@ class CampaignsSeeder extends Seeder
             'user_id' => '2',
             'name' => 'Deserto da Morte',
             'resume' => 'Aventuras nas areias escaldantes',
-            'description' => ''
+            'description' => 'Você foi contratado para escoltar um grupo de arqueólogos até uma misteriosa pirâmide descoberta no meio do deserto.'
         ]);
+        DB::table('campaigns')->insert([
+            'uuid' => Str::uuid(),
+            'user_id' => '2',
+            'name' => 'Marte Ataca',
+            'resume' => 'A Terra sofre uma invasão alienígena',
+            'description' => 'Subitamente, as principais cidades da Terra são atacadas por naves imensas de origem extraterrestre.'
+        ]);
+
     }
 }

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             ProfessionsAndRacesSeeder::class,
             CampaignsSeeder::class,
+            CharactersSeeder::class
         ]);
 
     }

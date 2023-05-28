@@ -18,35 +18,86 @@ class ProfessionsAndRacesSeeder extends Seeder
         DB::table('professions')->insert([
             'uuid' => Str::uuid(),
             'name' => 'Guerreiro',
-            'description' => 'Especialista em combate corpo-a-corpo',
+            'description' => 'Lutadores ferozes e mestres no combate corpo-a-corpo',
             'talent_name' => 'Caminho da Lâmina',
-            'talent_description' => 'Ganha +1 no ataque com lâminas',
-            'equipment' => 'espada longa e escudo'
+            'talent_description' => 'Causa 1 ponto a mais de dano em ataques com espadas e machados',
+            'equipment' => 'Espada longa e cota de malha'
         ]);
         DB::table('professions')->insert([
             'uuid' => Str::uuid(),
             'name' => 'Mago',
-            'description' => 'Estudante do oculto',
+            'description' => 'Estudante do oculto e conhecedor de magias arcanas poderosas e perigosas',
             'talent_name' => 'Caminho do Fogo',
-            'talent_description' => '',
-            'equipment' => 'cajado e grimório'
+            'talent_description' => 'Acesso a magias da Disciplina Ignis',
+            'equipment' => 'Adaga e grimório'
         ]);
+        DB::table('professions')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'Caçador',
+            'description' => 'Especialista em armas à distância como arcos e bestas',
+            'talent_name' => 'Caminho da Flecha',
+            'talent_description' => 'Bônus de 2 dados no teste de Ataque usando arcos e bestas',
+            'equipment' => 'Arco curto e armadura de couro'
+        ]);
+        DB::table('professions')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'Druida',
+            'description' => 'Protetor da natureza e estudioso de magias benéficas',
+            'talent_name' => 'Caminho da Cura',
+            'talent_description' => 'Acesso a magias da Disciplina Cura',
+            'equipment' => 'Bastão e símbolo sagrado'
+        ]);
+        DB::table('professions')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'Ladino',
+            'description' => 'Sutil e perigoso, prefere emboscadas que confrontos diretos',
+            'talent_name' => 'Caminho do Matador',
+            'talent_description' => 'Causa 1 ponto a mais de dano em ataques furtivos',
+            'equipment' => 'Espada curta e gazuas'
+        ]);
+
+
 
         DB::table('races')->insert([
             'uuid' => Str::uuid(),
-            'name' => 'Humano',
-            'description' => 'Numerosos e espalahdos por todas as regiões',
+            'name' => 'Humanos',
+            'description' => 'São numerosos, estão por toda parte e conseguem se adaptar a todo tipo de clima e situação',
             'talent_name' => 'Adaptável',
             'talent_description' => 'Pode testar um atributo no lugar de outro'
 
         ]);
         DB::table('races')->insert([
             'uuid' => Str::uuid(),
-            'name' => 'Orc',
-            'description' => 'Fortes e resistentes',
+            'name' => 'Orcs',
+            'description' => 'São cautelosos, resistentes e violentos com quem os ameaça',
             'talent_name' => 'Imbatível',
-            'talent_description' => 'Recupera 1 ponto de Força quando chegar em 0'
+            'talent_description' => 'Quando Força chega em 0, imediatamante recupera 1 ponto'
 
         ]);
+        DB::table('races')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'Elfos',
+            'description' => 'Seres imortais, dotados de uma visão peculiar sobre o mundo',
+            'talent_name' => 'Memória Ancestral',
+            'talent_description' => 'Bônus de 2 dados em testes de Astúcia'
+
+        ]);
+        DB::table('races')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'Anões',
+            'description' => 'Construtores e artesãos, moldam o mundo a sua vontade',
+            'talent_name' => 'Teimosia',
+            'talent_description' => 'Pode rolar de novo um teste falho'
+
+        ]);
+        DB::table('races')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'Halflingd',
+            'description' => 'Pacíficos e curiosos, são pequenos e furtivos',
+            'talent_name' => 'Esquivo',
+            'talent_description' => 'Bônus de 2 dados no teste de Defesa usando Agilidade'
+
+        ]);
+
     }
 }

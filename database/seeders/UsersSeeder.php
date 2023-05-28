@@ -17,7 +17,7 @@ class UsersSeeder extends Seeder
 
         DB::table('users')->insert([
             'uuid' => Str::uuid(),
-            'name' => 'Admin Teste',
+            'name' => 'Admin',
             'email' => 'admin@gepe.com',
             'email_verified_at' => now(),
             "password" => Hash::make('12345678'),
@@ -44,6 +44,30 @@ class UsersSeeder extends Seeder
             'uuid' => Str::uuid(),
             'name' => 'Jogador02',
             'email' => 'jogador2@gepe.com',
+            'email_verified_at' => now(),
+            "password" => Hash::make('12345678'),
+            'created_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'José',
+            'email' => 'jose2@gepe.com',
+            'email_verified_at' => now(),
+            "password" => Hash::make('12345678'),
+            'created_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'Maria',
+            'email' => 'maria@gepe.com',
+            'email_verified_at' => now(),
+            "password" => Hash::make('12345678'),
+            'created_at' => now()
+        ]);
+        DB::table('users')->insert([
+            'uuid' => Str::uuid(),
+            'name' => 'Marcela',
+            'email' => 'marcela@gepe.com',
             'email_verified_at' => now(),
             "password" => Hash::make('12345678'),
             'created_at' => now()

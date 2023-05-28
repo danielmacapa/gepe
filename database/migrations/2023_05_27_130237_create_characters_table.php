@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreignId('race_id')->constrained();
             $table->foreignId('profession_id')->constrained();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('campaign_id')->nullable()->constrained();
             $table->timestamps();
             $table->softDeletes();
         });

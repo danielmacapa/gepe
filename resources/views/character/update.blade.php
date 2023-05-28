@@ -54,17 +54,19 @@
                                 @endforelse
                             </select>
                         </div>
-                        {{-- <div class="form-group">
-                            <label>Campanha</label>
-                            <select class="form-control" name="campaign_id" required>
-                                @forelse ($campaigns as $campaign)
-                                    <option value="{{ $campaign->id }}" @if ($campaign->id == $character->campaign_id) selected @endif>
-                                        {{ $campaign->name }}
-                                    </option>
-                                @empty
-                                @endforelse
-                            </select>
-                        </div> --}}
+                        @role('admin')
+                            <div class="form-group">
+                                <label>Campanha</label>
+                                <select class="form-control" name="campaign_id" required>
+                                    @forelse ($campaigns as $campaign)
+                                        <option value="{{ $campaign->id }}" @if ($campaign->id == $character->campaign_id) selected @endif>
+                                            {{ $campaign->name }}
+                                        </option>
+                                    @empty
+                                    @endforelse
+                                </select>
+                            </div>
+                        @endrole
                     </div>
                 </div>
                 <div class="col-lg-6 col-2">
@@ -75,8 +77,8 @@
                             </tr>
                             <tr>
                                 <th>Força</th>
-                                <td> <input type="number" name="strenght" value="{{ $character->strenght }}" min="2"
-                                        max="4" required><br>
+                                <td> <input type="number" name="strenght" value="{{ $character->strenght }}"
+                                        min="2" max="4" required><br>
                                     </select>
                                 </td>
                             </tr>

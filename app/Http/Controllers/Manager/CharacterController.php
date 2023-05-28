@@ -63,7 +63,7 @@ class CharacterController extends Controller
             $campaign_uuid = $campaign->id;
         }
         else{
-            $campaign_uuid = null;
+            $campaign_uuid = '-';
         }
         $character = Character::create([
             'uuid' => Str::uuid(),

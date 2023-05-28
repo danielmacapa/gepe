@@ -5,28 +5,17 @@
         <div class="card-header">
             <h3 class="card-title">Detalhes da Campanha</h3>
             <div class="card-tools">
-                <div class="input-group input-group-sm" style="width: 150px;">
-                    <table class="table1">
-                        <tr>
-                            <td><a class='btn btn-primary btn-sm'
-                                    href="{{ route('manager.campaign.update', $campaign->uuid) }}"><i class='fa fa-edit'
-                                        title="Editar"></i></a></td>
-                            <td>
-                                <a class='btn btn-primary btn-sm'
-                                    href="{{ route('manager.campaign.delete', $campaign->uuid) }}"><i class='fa fa-trash'
-                                        title="Excluir"></i></a>
-                            </td>
-                        </tr>
-                    </table>
+                <div class="row">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <a class='btn btn-primary btn-sm' href="{{ route('manager.campaign.update', $campaign->uuid) }}"><i
+                                class='fa fa-edit'></i></a>
+                    </div>
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <a class='btn btn-primary btn-sm' href="{{ route('manager.campaign.delete', $campaign->uuid) }}"><i
+                                class='fa fa-trash'></i></a>
+                    </div>
                 </div>
-
             </div>
-
-            {{-- <div class="card-tools" class="float-right">
-                <a href="{{ route('campaign.update', $campaign->uuid) }}"><i class='fa fa-edit' title="Editar"></i></a>
-
-                <a href="{{ route('campaign.delete', $campaign->uuid) }}"><i class='fa fa-trash' title="Excluir"></i></a>
-            </div> --}}
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -45,10 +34,21 @@
                             <th class="table-primary">Descrição:</th>
                             <td>{{ $campaign->description }}</td>
                         </tr>
-                        {{-- A linha abaixo é visível apenas para usuários com cargo de Mestre --}}
                         <tr>
                             <th class="table-primary">Convite:</th>
-                            <td>{{ $campaign->uuid }}</td>
+                            {{-- <td>{{ $campaign->uuid }}</td> --}}
+                            <td><input type="text" id="texto" value={{ $campaign->uuid }} />
+                                <button onclick="copiarTexto()"><i class='fa fa-copy' title="Copiar"></i></button>
+                            </td>
+                            <script>
+                                function copiarTexto() {
+                                    let textoCopiado = document.getElementById("texto");
+                                    textoCopiado.select();
+                                    textoCopiado.setSelectionRange(0, 99999)
+                                    document.execCommand("copy");
+                                    alert("Convite copiado");
+                                }
+                            </script>
                         </tr>
 
                     </table>
@@ -62,13 +62,6 @@
             <div class="card-primary">
                 <div class="card-header">
                     <h3 class="card-title">Personagens da campanha <b>{{ $campaign->name }}</b></h3>
-
-                    <div class="card-tools">
-                        <div class="input-group input-group-sm" style="width: 150px;">
-                            <a class='btn btn-primary btn-sm' href="#"><i class='fa fa-plus'></i> Incluir
-                            </a>
-                        </div>
-                    </div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body table-responsive p-0" style="height: 300px;">

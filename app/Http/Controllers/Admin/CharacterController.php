@@ -16,8 +16,7 @@ class CharacterController extends Controller
     //
     public function list()
     {
-        // $characters = Character::all();
-        $characters = auth()->user()->characters;
+        $characters = Character::all();
         return view('character/list', compact('characters'));
     }
     public function show($uuid)
