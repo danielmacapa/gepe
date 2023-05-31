@@ -92,7 +92,7 @@ class ProfessionsAndRacesSeeder extends Seeder
         ]);
         DB::table('races')->insert([
             'uuid' => Str::uuid(),
-            'name' => 'Halflingd',
+            'name' => 'Halflings',
             'description' => 'Pacíficos e curiosos, são pequenos e furtivos',
             'talent_name' => 'Esquivo',
             'talent_description' => 'Bônus de 2 dados no teste de Defesa usando Agilidade'
