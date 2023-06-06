@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreignId('profession_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('campaign_id')->nullable()->constrained();
+            $table->boolean('active');
             $table->timestamps();
             $table->softDeletes();
         });

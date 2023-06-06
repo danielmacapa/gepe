@@ -25,7 +25,8 @@ class CharactersSeeder extends Seeder
             'agility' => '2',
             'wits' => '2',
             'empathy' => '2',
-            'level' => '1'
+            'level' => '1',
+            'active' => '1'
         ]);
 
         DB::table('characters')->insert([
@@ -38,7 +39,8 @@ class CharactersSeeder extends Seeder
             'agility' => '3',
             'wits' => '2',
             'empathy' => '3',
-            'level' => '1'
+            'level' => '1',
+            'active' => '1'
         ]);
         DB::table('characters')->insert([
             'uuid' => Str::uuid(),
@@ -50,7 +52,8 @@ class CharactersSeeder extends Seeder
             'agility' => '3',
             'wits' => '2',
             'empathy' => '3',
-            'level' => '1'
+            'level' => '1',
+            'active' => '1'
         ]);
         DB::table('characters')->insert([
             'uuid' => Str::uuid(),
@@ -62,7 +65,8 @@ class CharactersSeeder extends Seeder
             'agility' => '2',
             'wits' => '4',
             'empathy' => '2',
-            'level' => '1'
+            'level' => '1',
+            'active' => '0'
         ]);
         DB::table('characters')->insert([
             'uuid' => Str::uuid(),
@@ -74,7 +78,8 @@ class CharactersSeeder extends Seeder
             'agility' => '4',
             'wits' => '2',
             'empathy' => '2',
-            'level' => '1'
+            'level' => '1',
+            'active' => '1'
         ]);
         DB::table('characters')->insert([
             'uuid' => Str::uuid(),
@@ -86,7 +91,8 @@ class CharactersSeeder extends Seeder
             'agility' => '3',
             'wits' => '2',
             'empathy' => '2',
-            'level' => '1'
+            'level' => '1',
+            'active' => '1'
         ]);
 
 

@@ -29,8 +29,8 @@ class CampaignController extends Controller
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
             'name' => 'required|string|max:50',
-            'resume' => 'string|max:50',
-            'description' => 'string|max:200'
+            'resume' => 'string|max:150',
+            'description' => 'string|max:300'
         ]);
 
         $campaign = Campaign::create([
@@ -57,8 +57,8 @@ class CampaignController extends Controller
         // regras de validação (precisa pedir para mostrar o erro, está no master template)
         $request->validate([
             'name' => 'required',
-            'resume' => 'string|max:50',
-            'description' => 'string|max:200'
+            'resume' => 'string|max:150',
+            'description' => 'string|max:300'
 
         ]);
 

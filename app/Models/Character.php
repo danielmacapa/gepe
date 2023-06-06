@@ -23,6 +23,7 @@ class Character extends Model
         'profession_id',
         'user_id',
         'campaign_id',
+        'active',
         'level'
     ];
 

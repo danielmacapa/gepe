@@ -103,8 +103,41 @@
                                     </select>
                                 </td>
                             </tr>
+                        </table><br>
+                        {{-- <script>
+                            // Obtém uma referência ao elemento do botão de alternância
+                            const switchButton = document.getElementById('customSwitch1');
 
-                        </table>
+                            // Define um valor inicial para o botão de alternância
+                            let switchValue = '1';
+
+                            // Função para alternar o valor do botão de alternância
+                            function toggleSwitch() {
+                                switchValue = '0'; // Inverte o valor atual
+                                    if (switchValue) {
+                                        // Se o valor for true, o botão está ativado
+                                        switchButton.textContent = 'ON';
+                                        switchButton.classList.add('on');
+                                        switchButton.classList.remove('off');
+                                    } else {
+                                        // Se o valor for false, o botão está desativado
+                                        switchButton.textContent = 'OFF';
+                                        switchButton.classList.add('off');
+                                        switchButton.classList.remove('on');
+                                    }
+                            };
+                            $active = $switchValue;
+
+                            // Adiciona um evento de clique ao botão de alternância
+                            switchButton.addEventListener('click', toggleSwitch);
+                        </script>
+
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1" name="active" value={{$active}}>
+                                <label class="custom-control-label" for="customSwitch1">Desativar o personagem</label>
+                            </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
