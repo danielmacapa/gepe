@@ -29,13 +29,6 @@ class CampaignsSeeder extends Seeder
             'resume' => 'A Terra sofre uma invasão alienígena',
             'description' => 'Subitamente, as principais cidades da Terra são atacadas por naves imensas de origem extraterrestre.'
         ]);
-        DB::table('campaigns')->insert([
-            'uuid' => Str::uuid(),
-            'user_id' => '3',
-            'name' => 'O Rei de Amarelo',
-            'resume' => 'Uma figura sinistra atormenta os sonhos de um artista.',
-            'description' => 'Assombrado por sonhos vívidos e lúcidos, o pintor Thomas Hall afunda em uma espiral de terror e loucura.'
-        ]);
 
     }
 }

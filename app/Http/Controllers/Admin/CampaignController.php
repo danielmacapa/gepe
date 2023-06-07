@@ -34,7 +34,6 @@ class CampaignController extends Controller
 
         $campaign = Campaign::create([
             'uuid' => Str::uuid(),
-            'user_id' => auth()->user()->id,
             'name' => $request->name,
             'resume' => $request->resume,
             'description' => $request->description

@@ -18,7 +18,7 @@
                         </div>
                         <div class="form-group">
                             <label>Resumo</label>
-                            <input type="text" class="form-control" name="resume" placeholder="Breve resumo" required>
+                            <input type="text" class="form-control" name="name" placeholder="Breve resumo" required>
                         </div>
                         <div class="form-group">
                             <label>Descrição</label>
@@ -31,7 +31,7 @@
                 <button type="reset" name="Limpar" class="btn btn-light">Limpar</button>
                 <input type="hidden" name="action" value="Enviar">
                 <button type="submit" class="btn btn-primary">Cadastrar</button><br>
-                <a class='btn btn-secundary' href="{{ route('manager.campaign.list') }}"><i class="fas fa-arrow-circle-left">
+                <a class='btn btn-secundary' href="{{ route('campaign.list') }}"><i class="fas fa-arrow-circle-left">
                     </i> Voltar</a>
             </div>
         </form>

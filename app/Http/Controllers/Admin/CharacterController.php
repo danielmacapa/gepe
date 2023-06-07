@@ -52,7 +52,6 @@ class CharacterController extends Controller
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
             'empathy' => 'required|numeric|min:2|max:4',
-            'active' => 'required|boolean'
         ]);
         $character = Character::create([
             'uuid' => Str::uuid(),
@@ -65,7 +64,6 @@ class CharacterController extends Controller
             'agility' => $request->agility,
             'wits' => $request->wits,
             'empathy' => $request->empathy,
-            'active' => "1",
             'level' => "1"
         ]);
         return redirect()->route('admin.character.list')->with('success', 'Personagem criado com sucesso!');
@@ -93,8 +91,7 @@ class CharacterController extends Controller
             'strenght' => 'required|numeric|min:2|max:4',
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
-            'empathy' => 'required|numeric|min:2|max:4',
-            'active' => 'required|boolean'
+            'empathy' => 'required|numeric|min:2|max:4'
         ]);
 
         $character->update([
@@ -105,8 +102,7 @@ class CharacterController extends Controller
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,
-            'empathy' => $request->empathy,
-            'active' => $request->active
+            'empathy' => $request->empathy
         ]);
         return redirect()->route('admin.character.list')->with('success', 'Personagem atualizado com sucesso!');
 

@@ -55,7 +55,6 @@
                                 <input type="text" class="form-control" name="campaign_uuid"
                                     value="{{ old('campaign_uuid') }}" placeholder="Opcional">
                             </div>
-                            <input type="hidden" name="active" value="1">
                         </div>
                     </div>
                     <div class="col-lg-6 col-2">

@@ -15,7 +15,6 @@ class Campaign extends Model
     // define campos editáveis pelo usuário
     protected $fillable = [
         'uuid',
-        'user_id',
         'name',
         'resume',
         'description'

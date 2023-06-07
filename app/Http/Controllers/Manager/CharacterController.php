@@ -53,17 +53,17 @@ class CharacterController extends Controller
             'empathy' => 'required|numeric|min:2|max:4',
         ]);
         $campaign = Campaign::where('uuid', $request->campaign_uuid)->first();
-        if($request->campaign_uuid && !$campaign && !null){
+        if($request->campaign_uuid && !$campaign){
             return redirect()
         ->back()
         ->withInput()
         ->withErrors(['Convite inválido']);
         }
-        if($campaign == null){
-            $campaign_uuid = '3';
-        // }
-        // else{
-        //     $campaign_uuid = '-';
+        if($campaign){
+            $campaign_uuid = $campaign->id;
+        }
+        else{
+            $campaign_uuid = '-';
         }
         $character = Character::create([
             'uuid' => Str::uuid(),
@@ -71,12 +71,11 @@ class CharacterController extends Controller
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
             'user_id' => auth()->user()->id,
-            'campaign_id' => $request->campaign_id,
+            'campaign_id' => $campaign_uuid,
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,
             'empathy' => $request->empathy,
-            'active' => "1",
             'level' => "1"
         ]);
         return redirect()->route('manager.character.list')->with('success', 'Personagem criado com sucesso!');
@@ -104,8 +103,7 @@ class CharacterController extends Controller
             'strenght' => 'required|numeric|min:2|max:4',
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
-            'empathy' => 'required|numeric|min:2|max:4',
-            'active' => 'required'
+            'empathy' => 'required|numeric|min:2|max:4'
         ]);
 
         $character->update([
@@ -116,8 +114,7 @@ class CharacterController extends Controller
             'strenght' => $request->strenght,
             'agility' => $request->agility,
             'wits' => $request->wits,
-            'empathy' => $request->empathy,
-            'active' => $request->active
+            'empathy' => $request->empathy
         ]);
         return redirect()->route('manager.character.list')->with('success', 'Personagem atualizado com sucesso!');
 

@@ -33,9 +33,7 @@
                                 @role('admin')
                                     <th>Jogador</th>
                                 @endrole
-                                <th>Campanha</th>
-                                <th>Ativo?</th>
-                                <th colspan="3"></th>
+                                <th colspan="4">Campanha</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,11 +48,6 @@
                                     <td>
                                         @if ($character->campaign)
                                             {{ $character->campaign->name }}
-                                        @endif
-                                    </td>
-                                    <td>@if ($character->active == '1')
-                                        <i class='fa fa-thumbs-up'></i>
-                                        @else <i class='fa fa-thumbs-down'></i>
                                         @endif
                                     </td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
