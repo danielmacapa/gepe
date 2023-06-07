@@ -84,11 +84,14 @@
                             @endforelse
                         </tbody>
                     </table>
-                    <p><a class='btn btn-primary btn-sm' href="{{ route('admin.user.list') }}"><i
+                    <div>
+                        <p><br><a class='btn btn-primary btn-sm' href="{{ route('admin.user.list') }}"><i
                                 class="fas fa-arrow-circle-left">
                             </i> Voltar</a></p>
+                    </div>
                 </div>
                 <!-- /.card-body -->
+
             </div>
             <!-- /.card -->
         </div>

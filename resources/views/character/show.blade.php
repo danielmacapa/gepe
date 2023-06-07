@@ -33,7 +33,7 @@
                                 <td>{{ $character->profession->name }}</td>
                             </tr>
                             <tr>
-                                <th class="table-primary">Equipamento:</th>
+                                <th class="table-primary" title="Equipamento inicial">Equipamento:</th>
                                 <td>{{ $character->profession->equipment }}</td>
                             </tr>
                         </table>
@@ -47,19 +47,19 @@
                             <th colspan="2">ATRIBUTOS</th>
                         </tr>
                         <tr>
-                            <th>Força</th>
+                            <th title="É a capacidade física e resistência">Força</th>
                             <td>{{ $character->strenght }}</td>
                         </tr>
                         <tr>
-                            <th>Agilidade</th>
+                            <th title="Representa os reflexos e a velocidade">Agilidade</th>
                             <td>{{ $character->agility }}</td>
                         </tr>
                         <tr>
-                            <th>Astúcia</th>
+                            <th title="Inteligência e capacidade de raciocínio">Astúcia</th>
                             <td>{{ $character->wits }}</td>
                         </tr>
                         <tr>
-                            <th>Empatia</th>
+                            <th title="É o potencial de interação social">Empatia</th>
                             <td>{{ $character->empathy }}</td>
                         </tr>
 
@@ -68,11 +68,11 @@
                 </div> <!-- /.card-body -->
             </div> <!-- /.col -->
         </div> <!-- /.row -->
-        <div>
-            <a class='btn btn-primary btn-sm' href="{{ route('manager.character.list') }}"><i
-                    class="fas fa-arrow-circle-left">
-                </i> Voltar</a>
-        </div>
-
     </div>
+    <div>
+        <a class='btn btn-primary btn-sm' href="{{ route('manager.character.list') }}"><i
+                class="fas fa-arrow-circle-left">
+            </i> Voltar</a>
+    </div>
+
 @endsection

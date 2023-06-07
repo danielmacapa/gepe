@@ -60,6 +60,7 @@
                             <div class="form-group">
                                 <label>Campanha</label>
                                 <select class="form-control" name="campaign_id" required>
+                                    <option value="">Selecione</option>
                                     @forelse ($campaigns as $campaign)
                                         <option value="{{ $campaign->id }}" @if ($campaign->id == $character->campaign_id) selected @endif>
                                             {{ $campaign->name }}
@@ -75,31 +76,31 @@
                     <div class="card-body">
                         <table class="table table-lg">
                             <tr>
-                                <th colspan="2">ATRIBUTOS (2 a 4, total 12)</th>
+                                <th colspan="2" title="Distribua 12 pontos (mín. 2 e máx. 4)">ATRIBUTOS</th>
                             </tr>
                             <tr>
-                                <th>Força</th>
+                                <th title="É a capacidade física e resistência">Força</th>
                                 <td> <input type="number" name="strenght" value="{{ $character->strenght }}"
                                         min="2" max="4" required><br>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Agilidade</th>
+                                <th title="Representa os reflexos e a velocidade">Agilidade</th>
                                 <td> <input type="number" name="agility" value="{{ $character->agility }}" min="2"
                                         max="4" required><br>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Astúcia</th>
+                                <th title="Inteligência e capacidade de raciocínio">Astúcia</th>
                                 <td> <input type="number" name="wits" value="{{ $character->wits }}" min="2"
                                         max="4" required><br>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
-                                <th>Empatia</th>
+                                <th title="É o potencial de interação social">Empatia</th>
                                 <td> <input type="number" name="empathy" value="{{ $character->empathy }}" min="2"
                                         max="4" required><br>
                                     </select>

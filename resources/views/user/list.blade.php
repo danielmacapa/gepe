@@ -29,7 +29,7 @@
                             <tr class="table-primary">
                                 <th>Nome</th>
                                 <th>Email</th>
-                                <th colspan="4">Cargo</th>
+                                <th colspan="3"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,7 +37,6 @@
                                 <tr>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
-                                    <td>Cargo</td>
                                     <!-- As três views abaixo requerem uuid do registro, conforme rota -->
                                     <td><a href="{{ route('admin.user.show', $user->uuid) }}"><i class='fa fa-eye'
                                                 title="Detalhes"></i></a>
@@ -52,16 +51,18 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan=7>Não encontramos registros.</td>
+                                    <td colspan=5>Não encontramos registros.</td>
                                 </tr>
                             @endforelse
                         </tbody>
-                    </table><br>
-                    <p><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
-                                class="fas fa-arrow-circle-left">
-                            </i> Voltar</a></p>
+                    </table>
                 </div>
                 <!-- /.card-body -->
+                <div>
+                    <p><br><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
+                            class="fas fa-arrow-circle-left">
+                        </i> Voltar</a></p>
+                </div>
             </div>
             <!-- /.card -->
         </div>

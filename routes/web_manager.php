@@ -5,6 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Manager\CharacterController;
 use App\Http\Controllers\Manager\CampaignController;
 
+// Route::prefix('/manager')->name('manager.')->middleware(['auth', 'can:admin'])->group(function () {
+//     Route::get('/', [ProfileController::class, 'panel_admin'])->name('panel_admin');
+// });
+
 
 Route::prefix('/manager')->name('manager.')->middleware('auth')->group(function () {
     Route::get('/', [ProfileController::class, 'dashboard'])->name('dashboard');

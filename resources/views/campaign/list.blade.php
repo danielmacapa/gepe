@@ -29,7 +29,7 @@
                             <tr class="table-primary">
                                 <th>Nome</th>
                                 <th>Resumo</th>
-                                <th colspan="3"><th>
+                                <th colspan="2"><th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,20 +47,21 @@
                                     <td><a href="{{ route('manager.campaign.delete', $campaign->uuid) }}"><i
                                                 class='fa fa-trash' title="Excluir"></i></a>
                                     </td>
-
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan=7>Não encontramos registros.</td>
+                                    <td colspan=5>Não encontramos registros.</td>
                                 </tr>
                             @endforelse
                         </tbody>
-                    </table><br>
-                    <p><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
-                                class="fas fa-arrow-circle-left">
-                            </i> Voltar</a></p>
+                    </table>
                 </div>
                 <!-- /.card-body -->
+                <div>
+                    <p><br><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
+                    class="fas fa-arrow-circle-left">
+                </i> Voltar</a></p>
+                </div>
             </div>
             <!-- /.card -->
         </div>

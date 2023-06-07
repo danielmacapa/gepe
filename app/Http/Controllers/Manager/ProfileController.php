@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Manager;
 use App\Http\Controllers\Controller;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\Campaign;
+use App\Models\Character;
+use App\Models\Profession;
+use App\Models\Race;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +30,16 @@ class ProfileController extends Controller
         return view('dashboard', compact('characters'));
 
     }
+    // public function panel_admin(): View
+    // {
+    //     $characters = Character::all();
+    //     $races = Race::all();
+    //     $professions = Profession::all();
+    //     $users = User::all();
+    //     $campaigns = Campaign::all();
+    //     return view('panel_admin', compact('characters','races','professions','users','campaigns' ));
+
+    // }
 
     public function edit(Request $request): View
     {

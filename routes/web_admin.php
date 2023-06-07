@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\RaceController;
 use App\Http\Controllers\Admin\CampaignController;
 
 Route::prefix('/admin')->name('admin.')->middleware(['auth', 'can:admin'])->group(function () {
+    // Route::get('/', [ProfileController::class, 'panel_admin'])->name('panel_admin');
+
+    // Rotas do projeto
 
     Route::controller(RaceController::class)
     ->prefix('/race')->name('race.')

@@ -34,7 +34,7 @@
                                     <th>Jogador</th>
                                 @endrole
                                 <th>Campanha</th>
-                                <th colspan="4"></th>
+                                <th colspan="3"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,12 +69,14 @@
                                 </tr>
                             @endforelse
                         </tbody>
-                    </table><br>
-                    <p><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
-                                class="fas fa-arrow-circle-left">
-                            </i> Voltar</a></p>
+                    </table>
                 </div>
                 <!-- /.card-body -->
+                <div>
+                    <p><br><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
+                        class="fas fa-arrow-circle-left">
+                    </i> Voltar</a></p>
+                </div>
             </div>
             <!-- /.card -->
         </div>

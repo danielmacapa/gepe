@@ -71,7 +71,8 @@
                                 <th>Nome</th>
                                 <th>Ascendência</th>
                                 <th>Profissão</th>
-                                <th colspan="4">Jogador</th>
+                                <th>Jogador</th>
+                                <th colspan="3"></th>
                             </tr>
                         </thead>
                         <tbody>

@@ -14,15 +14,6 @@
                 <div class="row">
                     <div class="col-lg-6 col-2">
                         <div class="card-body">
-                            {{-- <div class="form-group">
-                                <label>Jogador</label>
-                                <select class="form-control" name="user_id" required>
-                                    @forelse ($users as $user)
-                                        <option value="{{ $user->id }}">{{ $user->name }}</option><br>
-                                    @empty
-                                    @endforelse
-                                </select>
-                            </div> --}}
                             <div class="form-group">
                                 <label>Nome do Personagem</label>
                                 <input type="text" class="form-control" name="name" value="{{ old('name') }}"
@@ -40,7 +31,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Profissão</label>
+                                <label title="Distribua 12 pontos (mín. 2 e máx. 4)">Profissão</label>
                                 <select class="form-control" name="profession_id" required>
                                     <option value="">Selecione</option>
                                     @forelse ($professions as $profession)
@@ -51,7 +42,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Convite para Campanha</label>
+                                <label title="Fornecido pelo mestre da campanha">Convite para Campanha</label>
                                 <input type="text" class="form-control" name="campaign_uuid"
                                     value="{{ old('campaign_uuid') }}" placeholder="Opcional">
                             </div>
@@ -60,33 +51,33 @@
                     <div class="col-lg-6 col-2">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>ATRIBUTOS</label>
+                                <label title="Distribua 12 pontos (mín. 2 e máx. 4)">ATRIBUTOS</label>
                             </div>
                             <!-- Tabela -->
                             <table class="table table-lg">
                                 <tr>
-                                    <th>Força</th>
+                                    <th title="É a capacidade física e resistência">Força</th>
                                     <td> <input type="number" name="strenght" value="2" min="2" max="4"
                                             required><br>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Agilidade</th>
+                                    <th title="Representa os reflexos e a velocidade">Agilidade</th>
                                     <td> <input type="number" name="agility" value="2" min="2" max="4"
                                             required><br>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Astúcia</th>
+                                    <th title="Inteligência e capacidade de raciocínio">Astúcia</th>
                                     <td> <input type="number" name="wits" value="2" min="2" max="4"
                                             required><br>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Empatia</th>
+                                    <th title="É o potencial de interação social">Empatia</th>
                                     <td> <input type="number" name="empathy" value="2" min="2" max="4"
                                             required><br>
                                         </select>
