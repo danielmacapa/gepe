@@ -42,8 +42,6 @@ class CharacterController extends Controller
         $total = $a + $b + $c + $d;*/
 
         //valida as informações entradas
-        $logged = auth()->user()->id;
-
         $request->validate([
             'name'=> 'required|string|max:50',
             'race_id' => 'required',
@@ -53,12 +51,25 @@ class CharacterController extends Controller
             'wits' => 'required|numeric|min:2|max:4',
             'empathy' => 'required|numeric|min:2|max:4',
         ]);
+        $campaign = Campaign::where('uuid', $request->campaign_uuid)->first();
+        if($request->campaign_uuid && !$campaign){
+            return redirect()
+        ->back()
+        ->withInput()
+        ->withErrors(['Convite inválido']);
+        }
+        if($campaign){
+            $campaign_uuid = $campaign->id;
+        }
+        else{
+            $campaign_uuid = '-';
+        }
         $character = Character::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
             'race_id' => $request->race_id,
             'profession_id' => $request->profession_id,
-            'user_id' => $logged,
+            'user_id' => auth()->user()->id,
             'campaign_id' => $request->campaign_id,
             'strenght' => $request->strenght,
             'agility' => $request->agility,

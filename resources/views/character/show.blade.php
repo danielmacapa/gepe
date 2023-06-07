@@ -15,10 +15,12 @@
                                 <th class="table-primary">Nome:</th>
                                 <th>{{ $character->name }}</th>
                             </tr>
+                            @role('admin')
                             <tr>
                                 <th class="table-primary">Jogador:</th>
                                 <td>{{ $character->user->name }}</td>
                             </tr>
+                            @endrole
                             <tr>
                                 <th class="table-primary">Nível:</th>
                                 <td>{{ $character->level }}</td>

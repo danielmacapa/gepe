@@ -33,7 +33,8 @@
                                 @role('admin')
                                     <th>Jogador</th>
                                 @endrole
-                                <th colspan="4">Campanha</th>
+                                <th>Campanha</th>
+                                <th colspan="4"></th>
                             </tr>
                         </thead>
                         <tbody>

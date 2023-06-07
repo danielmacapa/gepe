@@ -28,7 +28,8 @@
                         <thead>
                             <tr class="table-primary">
                                 <th>Nome</th>
-                                <th colspan="4">Resumo</th>
+                                <th>Resumo</th>
+                                <th colspan="3"><th>
                             </tr>
                         </thead>
                         <tbody>
