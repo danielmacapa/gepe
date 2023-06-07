@@ -21,6 +21,7 @@
                             <input type="text" class="form-control" name="name" value="{{ $character->name }}"
                                 required>
                         </div>
+                        @role('admin')
                         <div class="form-group">
                             <label>Jogador</label>
                             <select class="form-control" name="user_id" required>
@@ -32,6 +33,7 @@
                                 @endforelse
                             </select>
                         </div>
+                        @endrole
                         <div class="form-group">
                             <label>Ascendência</label>
                             <select class="form-control" name="race_id" required>

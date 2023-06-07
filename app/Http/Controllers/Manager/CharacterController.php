@@ -35,13 +35,6 @@ class CharacterController extends Controller
     }
     public function store(Request $request)
     {
-        /* validação dos atributos (12)
-        $a = $request->character->strenght;
-        $b = $request->character->agility;
-        $c = $request->character->wits;
-        $d = $request->character->empathy;
-        $total = $a + $b + $c + $d;*/
-
         //valida as informações entradas
         $request->validate([
             'name'=> 'required|string|max:50',
@@ -51,9 +44,10 @@ class CharacterController extends Controller
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
             'empathy' => 'required|numeric|min:2|max:4',
+            'total' => '12'
         ]);
         $campaign = Campaign::where('uuid', $request->campaign_uuid)->first();
-        if($request->campaign_uuid && !$campaign){
+        if($request->campaign_uuid && !$campaign && !null){
             return redirect()
         ->back()
         ->withInput()
@@ -63,8 +57,23 @@ class CharacterController extends Controller
             $campaign_uuid = $campaign->id;
         }
         else{
-            $campaign_uuid = '-';
+            $campaign_uuid = '3';
         }
+
+        //validação dos atributos (12)
+        $a = $request->strenght;
+        $b = $request->agility;
+        $c = $request->wits;
+        $d = $request->empathy;
+        $total = $a + $b + $c + $d;
+
+        if($total <> '12'){
+            return redirect()
+        ->back()
+        ->withInput()
+        ->withErrors(['Soma dos atributos deve ser igual a 12']);
+        }
+
         $character = Character::create([
             'uuid' => Str::uuid(),
             'name' => $request->name,
@@ -103,8 +112,23 @@ class CharacterController extends Controller
             'strenght' => 'required|numeric|min:2|max:4',
             'agility' => 'required|numeric|min:2|max:4',
             'wits' => 'required|numeric|min:2|max:4',
-            'empathy' => 'required|numeric|min:2|max:4'
+            'empathy' => 'required|numeric|min:2|max:4',
+            'total' => '12'
         ]);
+
+        //validação dos atributos (12)
+        $a = $request->strenght;
+        $b = $request->agility;
+        $c = $request->wits;
+        $d = $request->empathy;
+        $total = $a + $b + $c + $d;
+
+        if($total <> '12'){
+            return redirect()
+        ->back()
+        ->withInput()
+        ->withErrors(['Soma dos atributos deve ser igual a 12']);
+        }
 
         $character->update([
             'name' => $request->name,
