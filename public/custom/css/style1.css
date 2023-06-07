@@ -87,3 +87,8 @@ thead {
     border: 0 solid rgba(0, 0, 0, 0.125);
     border-radius: 0.25rem;
 }
+
+.celula-alinhada {
+    text-align: center !important;
+    vertical-align: middle !important;
+  }

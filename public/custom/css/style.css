@@ -2132,3 +2132,8 @@ a:hover, a:focus, a.active {
   position: absolute;
   transform: translate(-50%, -50%);
 }
+
+.celula-alinhada {
+    text-align: center;
+    vertical-align: middle;
+  }
