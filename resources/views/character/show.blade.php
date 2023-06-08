@@ -43,9 +43,9 @@
             <div class="col-lg-6 col-2">
                 <div class="card-body">
                     <table class="table table-lg">
-                        <tr>
+                        <tr style="text-align: center">
                             <th colspan="3">ATRIBUTOS</th>
-                            <th style="text-align: center">Resultado<th>
+                            <th>Resultado<th>
                         </tr>
                         <tr>
                             <th title="É a capacidade física e resistência">Força</th>
@@ -81,33 +81,6 @@
                             </td>
                         </tr>
                     </table>
-                    <script type="text/javascript">
-                        function rollDice() {
-                        return Math.floor(Math.random() * 6) + 1;
-                        }
-
-                        function rollMultipleDice(numDice, numFaces) {
-                        const results = [];
-
-                        for (let i = 0; i < numDice; i++) {
-                            const roll = rollDice();
-                            results.push(roll);
-                        }
-
-                        return results;
-                        }
-
-                        function rollingDices(campo) {
-                        const campoId = 'campo' + campo;
-                        const numDiceInput = document.getElementById(campoId);
-                        const numDice = parseInt(numDiceInput.value, 10);
-                        const numFaces = 6;
-
-                        const rolls = rollMultipleDice(numDice, numFaces);
-                        const resultadoElement = document.getElementById('resultado');
-                        resultadoElement.textContent = rolls.join(', ');
-                        }
-                    </script>
                 </div> <!-- /.card-body -->
             </div> <!-- /.col -->
         </div> <!-- /.row -->

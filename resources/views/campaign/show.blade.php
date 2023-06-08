@@ -4,7 +4,7 @@
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Detalhes da Campanha</h3>
-            <div class="card-tools">
+            {{-- <div class="card-tools">
                 <div class="row">
                     <div class="input-group input-group-sm" style="width: 150px;">
                         <a class='btn btn-primary btn-sm' href="{{ route('manager.campaign.update', $campaign->uuid) }}"><i
@@ -15,7 +15,7 @@
                                 class='fa fa-trash'></i></a>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!-- /.card-header -->
         <div class="card-body">

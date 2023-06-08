@@ -30,8 +30,11 @@
                                 <th>Nome</th>
                                 <th>Ascendência</th>
                                 <th>Profissão</th>
+                                @role('admin')
                                 <th>Jogador</th>
-                                <th colspan="4">Campanha</th>
+                                @endrole
+                                <th>Campanha</th>
+                                <th colspan="3"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -40,7 +43,9 @@
                                     <td>{{ $character->name }}</td>
                                     <td>{{ $character->race->name }}</td>
                                     <td>{{ $character->profession->name }}</td>
+                                    @role('admin')
                                     <td>{{ $character->user->name }}</td>
+                                    @endrole
                                     <td>
                                         @if ($character->campaign)
                                             {{ $character->campaign->name }}

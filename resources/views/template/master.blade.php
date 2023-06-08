@@ -102,6 +102,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('adminlte/js/adminlte.js') }}"></script>
+    <!-- Script customizado -->
+    <script src="{{asset('custom/js/script.js')}}"></script>
 </body>
 
 </html>
