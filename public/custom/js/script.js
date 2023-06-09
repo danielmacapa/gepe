@@ -1,3 +1,5 @@
+////////// Rolador de Dados
+
 function rollDice() {
   return Math.floor(Math.random() * 6) + 1;
 }
@@ -30,3 +32,25 @@ function rollingDices(campo) {
     resultadoElement.appendChild(diceFaceImage);
   }
 }
+
+// ///////// Soma dos atributos
+
+// $(document).ready(function() {
+//     $('.campo').change(function() {
+//         $.post($('#meuForm').attr('action'), $('#meuForm').serialize(), function(data) {
+//             var soma = data.soma;
+//             $('#soma').val(soma);
+
+//             if (soma == 12) {
+//                 $('#soma').removeClass('vermelho');
+//                 $('#soma').addClass('laranja');
+//             } else if (soma > 12) {
+//                 $('#soma').removeClass('vermelho');
+//                 $('#soma').removeClass('laranja');
+//             } else {
+//                 $('#soma').removeClass('laranja');
+//                 $('#soma').addClass('vermelho');
+//             }
+//         });
+//     });
+// });

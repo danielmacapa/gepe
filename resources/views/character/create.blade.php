@@ -85,6 +85,18 @@
                                 </tr>
                             </table>
                             <!-- Fim da Tabela -->
+                            {{-- <!-- Soma dos pontos -->
+                            <div class="form-group">
+                                <form id="meuForm" action="{{ route('calcular-soma') }}" method="POST">
+                                    @csrf
+                                    <input type="number" name="campo1" class="campo" step="0.01" required>
+                                    <input type="number" name="campo2" class="campo" step="0.01" required>
+                                    <input type="number" name="campo3" class="campo" step="0.01" required>
+                                    <input type="number" name="campo4" class="campo" step="0.01" required>
+                                    <input type="text" id="soma" readonly>
+                                </form>
+                            </div>
+                            <!-- /Soma dos pontos --> --}}
                         </div>
                     </div>
                 </div>

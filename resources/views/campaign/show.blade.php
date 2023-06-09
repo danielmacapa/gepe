@@ -72,7 +72,7 @@
                                 <th>Ascendência</th>
                                 <th>Profissão</th>
                                 <th>Jogador</th>
-                                <th colspan="3"></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -86,12 +86,12 @@
                                     <td><a href="{{ route('manager.character.show', $character->uuid) }}"><i
                                                 class='fa fa-eye' title="Detalhes"></i></a>
                                     </td>
-                                    <td><a href="{{ route('manager.character.update', $character->uuid) }}"><i
+                                    {{-- <td><a href="{{ route('manager.character.update', $character->uuid) }}"><i
                                                 class='fa fa-edit' title="Editar"></i></a>
                                     </td>
                                     <td><a href="{{ route('manager.character.delete', $character->uuid) }}"><i
                                                 class='fa fa-trash' title="Excluir"></i></a>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @empty
                                 <tr>
