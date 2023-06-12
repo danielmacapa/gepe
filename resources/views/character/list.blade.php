@@ -1,7 +1,7 @@
 @extends('template.master')
 
 @section('novo')
-    <a class='btn btn-primary btn-sm' href="{{ route('manager.character.create') }}"><i class='fa fa-plus'></i> Cadastrar Novo
+    <a class='btn btn-primary' href="{{ route('manager.character.create') }}"><i class='fa fa-plus'></i> Cadastrar Novo
     </a>
 @endsection
 
@@ -31,7 +31,7 @@
                                 <th>Ascendência</th>
                                 <th>Profissão</th>
                                 @role('admin')
-                                    <th>Jogador</th>
+                                <th>Jogador</th>
                                 @endrole
                                 <th>Campanha</th>
                                 <th colspan="3"></th>
@@ -73,7 +73,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div>
-                    <p><br><a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
+                    <p><br><a class='btn btn-primary' href="javascript:history.back()"><i
                         class="fas fa-arrow-circle-left">
                     </i> Voltar</a></p>
                 </div>

@@ -20,8 +20,8 @@
         <!-- /.card-header -->
         <div class="card-body">
             <div class="row">
-                <div class="table table-lg">
-                    <table>
+                <div class="col-12">
+                    <table class="table table-responsive m-0 p-0" >
                         <tr>
                             <th class="table-primary">Nome:</th>
                             <th>{{ $campaign->name }}</th>
@@ -39,16 +39,16 @@
                             {{-- <td>{{ $campaign->uuid }}</td> --}}
                             <td><input type="text" id="texto" value={{ $campaign->uuid }} />
                                 <button onclick="copiarTexto()"><i class='fa fa-copy' title="Copiar"></i></button>
+                                <script>
+                                    function copiarTexto() {
+                                        let textoCopiado = document.getElementById("texto");
+                                        textoCopiado.select();
+                                        textoCopiado.setSelectionRange(0, 99999)
+                                        document.execCommand("copy");
+                                        alert("Convite copiado");
+                                    }
+                                </script>
                             </td>
-                            <script>
-                                function copiarTexto() {
-                                    let textoCopiado = document.getElementById("texto");
-                                    textoCopiado.select();
-                                    textoCopiado.setSelectionRange(0, 99999)
-                                    document.execCommand("copy");
-                                    alert("Convite copiado");
-                                }
-                            </script>
                         </tr>
 
                     </table>

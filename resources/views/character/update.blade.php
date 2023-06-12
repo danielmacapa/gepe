@@ -80,45 +80,64 @@
                             </tr>
                             <tr>
                                 <th title="É a capacidade física e resistência">Força</th>
-                                <td> <input type="number" name="strenght" value="{{ $character->strenght }}"
-                                        min="2" max="4" required><br>
+                                <td> <input type="number" name="strenght" id="str" value="{{ $character->strenght }}" min="2" max="4" onchange="calcular()" required><br>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <th title="Representa os reflexos e a velocidade">Agilidade</th>
-                                <td> <input type="number" name="agility" value="{{ $character->agility }}" min="2"
-                                        max="4" required><br>
+                                <td> <input type="number" name="agility" id="agi" value="{{ $character->agility }}" min="2" max="4" onchange="calcular()" required><br>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <th title="Inteligência e capacidade de raciocínio">Astúcia</th>
-                                <td> <input type="number" name="wits" value="{{ $character->wits }}" min="2"
-                                        max="4" required><br>
+                                <td> <input type="number" name="wits" id="wit" value="{{ $character->wits }}" min="2" max="4" onchange="calcular()" required><br>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <th title="É o potencial de interação social">Empatia</th>
-                                <td> <input type="number" name="empathy" value="{{ $character->empathy }}" min="2"
-                                        max="4" required><br>
+                                <td> <input type="number" name="empathy" id="emp" value="{{ $character->empathy }}" min="2" max="4" onchange="calcular()" required><br>
                                     </select>
                                 </td>
                             </tr>
-
                         </table>
+                        <br>
+                            <div id="resultado">Pontos distribuídos corretamente</div>
+                            </div>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <a class='btn btn-secundary' href="{{ route('manager.character.list') }}"><i
+                <input type="hidden" name="action" value="Enviar">
+                <button type="submit" class="btn btn-primary m-1">Atualizar</button>
+                <a class='btn btn-secondary m-1' href="{{ route('manager.character.list') }}"><i
                         class="fas fa-arrow-circle-left">
                     </i> Voltar</a>
-                <input type="hidden" name="action" value="Enviar">
-                <button type="submit" class="btn btn-primary">Atualizar</button>
             </div>
         </form>
     </div>
     <!-- /.card-body -->
-@endsection
+    <script>
+        function calcular() {
+            var str = parseInt(document.getElementById('str').value, 10);
+            var agi = parseInt(document.getElementById('agi').value, 10);
+            var wit = parseInt(document.getElementById('wit').value, 10);
+            var emp = parseInt(document.getElementById('emp').value, 10);
+            var res = 12-(str + agi + wit + emp);
+            if (res == 0) {
+                var msg = `Pontos distribuídos corretamente`;
+            }
+            else {
+                if (res > 0) {
+                    var msg = `Distribua ${res} ponto(s)`;
+                }
+                else {
+                    var msg = `Pontos excedentes. Retire ${(res)*-1} ponto(s)`;
+                }
+            }
+            document.getElementById('resultado').innerHTML = msg;
+        }
+        </script>
+    @endsection

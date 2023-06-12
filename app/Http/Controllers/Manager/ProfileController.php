@@ -26,21 +26,23 @@ class ProfileController extends Controller
     }
     public function dashboard(): View
     {
+        $logged = auth()->user();
+        $permission = $logged->roles()->first();
+
+        if($permission && $permission->name == 'admin'){
+            $characters = Character::all();
+            $races = Race::all();
+            $professions = Profession::all();
+            $users = User::all();
+            $campaigns = Campaign::all();
+            return view('dashboard_admin', compact('characters','races','professions','users','campaigns' ));
+            }
+        else{
+
         $characters = auth()->user()->characters;
-        return view('dashboard', compact('characters'));
+        return view('dashboard_user', compact('characters'));}
 
     }
-    // public function panel_admin(): View
-    // {
-    //     $characters = Character::all();
-    //     $races = Race::all();
-    //     $professions = Profession::all();
-    //     $users = User::all();
-    //     $campaigns = Campaign::all();
-    //     return view('panel_admin', compact('characters','races','professions','users','campaigns' ));
-
-    // }
-
     public function edit(Request $request): View
     {
         return view('profile.edit', [

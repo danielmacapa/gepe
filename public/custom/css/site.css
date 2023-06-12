@@ -24,3 +24,9 @@
     line-height: 26px;
     letter-spacing: 1px;
 }
+q, cite, span.subtitle {
+    color: #fff !important;
+}
+.btn:hover {
+    color: #fff !important;
+}

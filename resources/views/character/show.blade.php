@@ -5,9 +5,10 @@
         <div class="card-header">
             <h3 class="card-title">Detalhes do Personagem</h3>
         </div>
-        <!-- /.card-header -->
+        <!-- Tabelas -->
         <div class="row">
-            <div class="col-lg-6 col-2">
+            <!-- Características -->
+            <div class="col-lg-4">
                 <div class="card-body">
                     <div class="table table-lg">
                         <table>
@@ -15,12 +16,6 @@
                                 <th class="table-primary">Nome:</th>
                                 <th>{{ $character->name }}</th>
                             </tr>
-                            @role('admin')
-                            <tr>
-                                <th class="table-primary">Jogador:</th>
-                                <td>{{ $character->user->name }}</td>
-                            </tr>
-                            @endrole
                             <tr>
                                 <th class="table-primary">Nível:</th>
                                 <td>{{ $character->level }}</td>
@@ -36,16 +31,27 @@
                                 <th class="table-primary" title="Equipamento inicial">Equipamento:</th>
                                 <td>{{ $character->profession->equipment }}</td>
                             </tr>
+                            @role('admin')
+                            <tr>
+                                <th class="table-primary">Jogador:</th>
+                                <td>{{ $character->user->name }}</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary">Campanha:</th>
+                                <td>{{ $character->campaign->name }}</td>
+                            </tr>
+                            @endrole
                         </table>
                     </div>
-                </div> <!-- /.card-body -->
-            </div> <!-- /.col -->
-            <div class="col-lg-6 col-2">
+                </div>
+            </div>
+            <!-- Atributos -->
+            <div class="col-lg-4">
                 <div class="card-body">
                     <table class="table table-lg">
                         <tr style="text-align: center">
-                            <th colspan="3">ATRIBUTOS</th>
-                            <th>Resultado<th>
+                            <th colspan="2">ATRIBUTOS</th>
+                            <th></th>
                         </tr>
                         <tr>
                             <th title="É a capacidade física e resistência">Força</th>
@@ -54,7 +60,6 @@
                             <td style="text-align: center"><button onclick="rollingDices(1)"><i
                                 class='fa fa-dice' title="Rolar"></i></button>
                             </td>
-                            <th rowspan="4" class="celula-alinhada" id="resultado"></td>
                         </tr>
                         <tr>
                             <th title="Representa os reflexos e a velocidade">Agilidade</th>
@@ -81,12 +86,25 @@
                             </td>
                         </tr>
                     </table>
-                </div> <!-- /.card-body -->
-            </div> <!-- /.col -->
-        </div> <!-- /.row -->
+                </div>
+            </div>
+            <!-- Rolagem -->
+            <div class="col-lg-4">
+                <div class="card-body">
+                    <table class="table table-lg">
+                        <tr style="text-align: center">
+                            <th>Resultado</th>
+                        </tr>
+                        <tr>
+                            <th class="celula-alinhada" id="resultado"></th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
     <div>
-        <a class='btn btn-primary btn-sm' href="javascript:history.back()"><i
+        <a class='btn btn-primary' href="javascript:history.back()"><i
             class="fas fa-arrow-circle-left">
             </i> Voltar</a>
     </div>

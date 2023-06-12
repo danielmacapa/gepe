@@ -5,10 +5,7 @@ use App\Http\Controllers\Manager\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 // Rotas de Auth sem verificação de e-mail
-Route::get('/', [ProfileController::class, 'show']);
-
-Route::post('/calcular-soma', [FormController::class, 'calcularSoma'])->name('calcular-soma');
-
+Route::get('/', [ProfileController::class, 'show'])->name('home');
 
 
 

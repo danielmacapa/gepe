@@ -15,7 +15,7 @@
             <!-- Left navbar links -->
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="{{ route('manager.dashboard') }}" class="nav-link">Início</a>
+                    <a href="{{ route('manager.character.list') }}" class="nav-link">Início</a>
                 </li>
                 @role('admin')
                 <li class="nav-item"><a href="{{ route('admin.character.list') }}" class="nav-link">Personagens </a></li>

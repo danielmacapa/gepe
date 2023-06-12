@@ -57,54 +57,40 @@
                             <table class="table table-lg">
                                 <tr>
                                     <th title="É a capacidade física e resistência">Força</th>
-                                    <td> <input type="number" name="strenght" value="2" min="2" max="4"
+                                    <td> <input type="number" name="strenght" id="str" value="2" min="2" max="4" onchange="calcular()"
                                             required><br>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th title="Representa os reflexos e a velocidade">Agilidade</th>
-                                    <td> <input type="number" name="agility" value="2" min="2" max="4"
+                                    <td> <input type="number" name="agility" id="agi" value="2" min="2" max="4" onchange="calcular()"
                                             required><br>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th title="Inteligência e capacidade de raciocínio">Astúcia</th>
-                                    <td> <input type="number" name="wits" value="2" min="2" max="4"
+                                    <td> <input type="number" name="wits" id="wit" value="2" min="2" max="4" onchange="calcular()"
                                             required><br>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th title="É o potencial de interação social">Empatia</th>
-                                    <td> <input type="number" name="empathy" value="2" min="2" max="4"
+                                    <td> <input type="number" name="empathy" id="emp" value="2" min="2" max="4" onchange="calcular()"
                                             required><br>
                                         </select>
                                     </td>
                                 </tr>
-                            </table>
-                            <!-- Fim da Tabela -->
-                            {{-- <!-- Soma dos pontos -->
-                            <div class="form-group">
-                                <form id="meuForm" action="{{ route('calcular-soma') }}" method="POST">
-                                    @csrf
-                                    <input type="number" name="campo1" class="campo" step="0.01" required>
-                                    <input type="number" name="campo2" class="campo" step="0.01" required>
-                                    <input type="number" name="campo3" class="campo" step="0.01" required>
-                                    <input type="number" name="campo4" class="campo" step="0.01" required>
-                                    <input type="text" id="soma" readonly>
-                                </form>
+                            </table><br>
+                            <div id="resultado" style="color:orange"><b>Distribua 4 pontos</b></div>
                             </div>
-                            <!-- /Soma dos pontos --> --}}
-                        </div>
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="reset" name="Limpar" class="btn btn-light">Limpar</button>
-                    <input type="hidden" name="action" value="Enviar">
-                    <button type="submit" class="btn btn-primary">Cadastrar</button><br>
-                    <a class='btn btn-secundary' href="{{ route('manager.character.list') }}"><i
+                    <button type="submit" class="btn btn-primary m-1">Cadastrar</button>
+                    <a class='btn btn-secondary m-1' href="{{ route('manager.character.list') }}"><i
                             class="fas fa-arrow-circle-left">
                         </i> Voltar</a>
                 </div>
@@ -112,4 +98,57 @@
         </div>
         <!-- /.card-body -->
     </div>
+    <script>
+        function calcular() {
+            var str = parseInt(document.getElementById('str').value, 10);
+            var agi = parseInt(document.getElementById('agi').value, 10);
+            var wit = parseInt(document.getElementById('wit').value, 10);
+            var emp = parseInt(document.getElementById('emp').value, 10);
+            var res = 12-(str + agi + wit + emp);
+            if (res == 0) {
+                msg = `Pontos distribuídos corretamente`;
+                sty = "green";
+                wei = "bold"
+            }
+            else {
+                if (res > 0) {
+                    msg = `Distribua ${res} ponto(s)`;
+                    sty = "orange";
+                    wei = "bold"
+                }
+                else {
+                    msg = `Pontos excedentes. Retire ${(res)*-1} ponto(s)`;
+                    sty = "red";
+                    wei = "normal"
+                }
+            }
+            document.getElementById('resultado').innerHTML = msg;
+            resultado.style.color = sty;
+            resultado.style.fontWeight = wei;
+        }
+        </script>
+            {{-- <script>
+                function calcular() {
+                    var str = parseInt(document.getElementById('str').value, 10);
+                    var agi = parseInt(document.getElementById('agi').value, 10);
+                    var wit = parseInt(document.getElementById('wit').value, 10);
+                    var emp = parseInt(document.getElementById('emp').value, 10);
+                    var res = 12-(str + agi + wit + emp);
+                    if (res == 0) {
+                        document.getElementById('resultado').innerHTML = `Pontos distribuídos corretamente`;
+                        document.style.backgroundColor = "green";
+                        document.style.color = "white";
+                    }
+                    else {
+                        if (res > 0) {
+                            var msg = `Distribua ${res} ponto(s)`;
+                        }
+                        else {
+                            var msg = `Pontos excedentes. Retire ${(res)*-1} ponto(s)`;
+                        }
+                    }
+                    document.getElementById('resultado').innerHTML = msg;
+                }
+                </script> --}}
+
 @endsection
